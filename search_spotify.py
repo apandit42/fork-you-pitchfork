@@ -34,7 +34,6 @@ def verify_album_match(album_result, true_album, true_artist, true_year=None):
                 return False 
     return True
 
-
 def spotify_worker(args):
     client_id, client_secret, df = args
     app_token  = tk.request_client_token(client_id, client_secret)
