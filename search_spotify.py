@@ -4,6 +4,8 @@ from pprint import pprint
 import tekore as tk
 from secrets import *
 
+
+# Build the query string for spotify search calls
 def get_query(artist, album, year):
     if pd.isna(year):
         q = f'album:{album} artist:{artist}'
@@ -12,6 +14,8 @@ def get_query(artist, album, year):
     q = q.replace('“','').replace('”','')
     return q
 
+
+# Verify that album found from spotify search matches actual pitchfork album information
 def verify_album_match(album_result, true_album, true_artist, true_year=None):
     album_name = album_result.name 
     if album_result != true_album:
@@ -31,7 +35,10 @@ def verify_album_match(album_result, true_album, true_artist, true_year=None):
                 return False 
     return True
 
+
+# Worker function for searching spotify for albums
 def spotify_worker(args):
+    #
     client_id, client_secret, df = args
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token)
@@ -73,6 +80,7 @@ def spotify_worker(args):
                 # check if the artist name is correct - if multiple artists, check that they are each in the original artist string 
         
 
+# Packages all pitchfork data for the manager and multiprocessing calls
 def get_spotify_worker_data(df):
     # Get total rows
     total_rows = df.shape[0]
@@ -92,6 +100,7 @@ def get_spotify_worker_data(df):
     return worker_data_package
 
 
+# Manager function for searching spotify for all albums
 def spotify_manager(df):
     # Grab worker data in organized way
     worker_data = get_spotify_worker_data(df)
