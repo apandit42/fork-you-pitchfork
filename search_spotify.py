@@ -1,13 +1,13 @@
-from multiprocessing import Pool
+import multiprocessing as mp
 import pandas as pd
 from pprint import pprint
 import tekore as tk
-from secrets import *
+import keys
 
 
 # Build the query string for spotify search calls
-def get_query(artist, album, year):
-    if pd.isna(year):
+def get_query(artist, album, year=None):
+    if year is None:
         q = f'album:{album} artist:{artist}'
     else:
         q = f'album:{album} artist:{artist} year:{year}'
@@ -15,59 +15,121 @@ def get_query(artist, album, year):
     return q
 
 
-# Verify that album found from spotify search matches actual pitchfork album information
-def verify_album_match(album_result, true_album, true_artist, true_year=None):
-    album_name = album_result.name 
-    if album_result != true_album:
+# Verify that the albums match the pitchfork album name, artist, and year
+def verify_album_match(album, wanted_album, wanted_artist, wanted_year=None):
+    if wanted_album != album.name:
         return False
+
     if wanted_year != None:
         release_year = album.release_date.split('-')[0]
         if release_year != wanted_year:
             return False
-    artists = album_result.artists
 
-    #if multiple artists, make sure that they are in the string ... check for commas  
-    if true_artist.find(', ') != -1:
-        search_artists = true_artist.split(', ')
-        for artist in search_artists:
-            # doesn't take into account whether there are extra artists or not.... 
-            if artist not in artists:
-                return False 
+    artists_found = album.artists
+    if len(artists_found) == 1:
+        if artists_found[0].name != wanted_artist:
+            return False
+    # if spotify has multiple artists listed for an album
+    else:
+        #wanted artist: "Kanye West, Jay-Z"
+        #artists_found = ["Kanye West", "Jay-Z", "Tyler, the Creator"]
+        # potentially need to change this 
+        for artist in artists_found:
+            artist_name = artist.name
+            if artist_name not in wanted_artist:
+                return False
     return True
 
 
-# Worker function for searching spotify for albums
-def spotify_worker(args):
+# Build each album dict for the list
+def build_album_dict(album, pitchfork_id, artist, album_name, year):
+    artist_id = ','.join([x.id for x in album.artists])
+    album_info_dict = {
+        'pitchfork_id': pitchfork_id,
+        'album': album_name,
+        'album_id': album.id,
+        'artist': artist,
+        'artist_id': artist_id,
+        'year': year,
+    }
+    return album_info_dict
+
+
+def spotify_worker(data, client_id, client_secret):
     # Split up the provided arguments
-    client_id, client_secret, df = args
+    # data, client_id, client_secret = args
 
     # Setup tk Spotify session
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token)
+
+    # Convert data to dataframe
+    df = pd.DataFrame(data)
+
+    # Begin the results list which will hold all the row dicts
     results = []
+
+    # Counter of found results + not found results
+    found_results = 0
+    not_found_results = 0
+
     # loop through each row in pitchfork data to find matching album on spotify 
-    for pitchfork_id, artist, search_album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, search_album, year)
-        albums, = spotify.search(q, types=('album',)
-        # If no results found and multiple artists (with Tyler edge case)
-        if albums.total == 0 and artist.find(', ') != -1:
-            # Loop over artist names and redo search
-            query_artists = artist.split(', ')
-            for query_artist in query_artists:
-                new_query = get_query(query_artist, album, year)
-                albums, = spotify.search(new_query, types=('album',))
-                for album in albums:
-                    if verify_album_match(album_result, search_album, artist, year):
-                        # if correct album is found, add to our data structure (list of dicts?)
-                        album_id = album.id 
-                        #wait how are we taking care of multiple artists? row for each? i forgot... 
-                        results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
-        else: 
-            for album in albums.items:
-                if verify_album_match(album_result, search_album, artist, year):
-                    # if correct album is found, add to our data structure (list of dicts?) 
-                    break
+    for pitchfork_id, artist, album_name, year in df.itertuples(index=False, name=None):
+        # Check if year NaN, and if so, set to none
+        if pd.isna(year):
+            year = None
         
+        # Confirm run printing
+        print(f'ID {pitchfork_id} w/ {album_name} by {artist} ({year})...')
+        
+        # Albums to verify before building
+        candidate_matches = []
+
+        # Boolean flag if this album has been found
+        album_found = False
+
+        # Build search query & get initial search results
+        q = get_query(artist, album_name, year)
+        albums, = spotify.search(q, types=('album',))
+        
+        # If no results found and multiple comma separated artists in artist text (with Tyler edge case)
+        if albums.total == 0 and artist.find(', ') != -1:
+            # Split into multiple artists with delimiter
+            query_artist_list = artist.split(', ')
+
+            # Loop results and build new queries
+            for curr_artist in query_artist_list:
+                q = get_query(curr_artist, album_name, year)
+                albums, = spotify.search(q, types=('album',))
+                
+                # if new query turns up result, add to candidate albums
+                if albums.total != 0:
+                    candidate_matches += albums.items
+
+        # If match found on initial search with pitchfork artist name, add to candidates
+        else:
+            candidate_matches += albums.items
+        
+        # Now loop through all albums and verify matches, appending verified results
+        for candidate_album in candidate_matches:
+            if verify_album_match(candidate_album, album_name, artist, year):
+                new_match = build_album_dict(candidate_album, pitchfork_id, artist, album_name, year)
+                results.append(new_match)
+                album_found =  True
+        
+        # Modify found status
+        if album_found:
+            found_results += 1
+        else:
+            not_found_results += 1
+
+    # Now print total found / not found
+    print(f'TOTAL FOUND: {found_results} ({found_results/(found_results + not_found_results)}%)')
+    print(f'TOTAL NOT FOUND {not_found_results} ({not_found_results/(found_results + not_found_results)}%)')
+
+    # Returns results
+    return results
+
 
 # Packages all pitchfork data for the manager and multiprocessing calls
 def get_spotify_worker_data(df):
@@ -81,20 +143,12 @@ def get_spotify_worker_data(df):
 
     # Now load client_id and secret_key into chunk tuples
     worker_data_package = [
-        (chunk_0, AYUSH_SPOTIFY_CLIENT_ID, AYUSH_SPOTIFY_SECRET_KEY),
-        (chunk_1, KIMBERLY_SPOTIFY_CLIENT_ID, KIMBERLY_SPOTIFY_SECRET_KEY),
-        (chunk_2, COLIN_SPOTIFY_CLIENT_ID, COLIN_SPOTIFY_SECRET_KEY),
+        (chunk_0.to_dict('records'), keys.AYUSH_SPOTIFY_CLIENT_ID, keys.AYUSH_SPOTIFY_SECRET_KEY),
+        (chunk_1.to_dict('records'), keys.KIMBERLY_SPOTIFY_CLIENT_ID, keys.KIMBERLY_SPOTIFY_SECRET_KEY),
+        (chunk_2.to_dict('records'), keys.COLIN_SPOTIFY_CLIENT_ID, keys.COLIN_SPOTIFY_SECRET_KEY),
     ]
 
     # Return chunked data
-    return worker_data_package
-
-
-def spotify_manager(df):
-    worker_data = get_spotify_worker_data(df)
-    with Pool(2) as p:
-    
-
     return worker_data_package
 
 
@@ -104,12 +158,12 @@ def spotify_manager(df):
     worker_data = get_spotify_worker_data(df)
     
     # 3 keys so hard coded in
-    WORKER_THREADS = 3
+    WORKER_THREADS = 2
 
     # Send data to the pool workers
-    with Pool(WORKER_THREADS) as p:
-        worker_output = p.map(spotify_worker, worker_data)
-    
+    with mp.Pool(WORKER_THREADS) as p:
+        worker_output = p.starmap(spotify_worker, worker_data)
+
     # Now unpack everything
     output_list = [y for x in worker_output for y in x]
 
@@ -122,4 +176,5 @@ def spotify_manager(df):
 
 if __name__ == '__main__':
     df = pd.read_csv('pitchfork_core.csv')
+    df = df[['pitchfork_id', 'artist', 'album', 'release_year']]
     spotify_manager(df)

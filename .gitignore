@@ -8,3 +8,4 @@ __pycache__/
 !pitchfork_core.csv
 
 secrets.py
+keys.py
