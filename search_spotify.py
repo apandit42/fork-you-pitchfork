@@ -16,76 +16,67 @@ def get_query(artist, album, year):
     q = q.replace('“','').replace('”','')
     return q
 
-def verify_album_match(album_result, true_album, true_artist, true_year=None):
-    album_name = album_result.name 
-    if album_result != true_album:
+def verify_album_match(album, wanted_album, wanted_artist, wanted_year=None):
+    album_name = album.name
+    if wanted_album != album_name:
         return False
-    if true_year != None:
-        release_year = album_result.release_date.split('_')[0]
-        if release_year != true_year:
+    if wanted_year != None:
+        release_year = album.release_date.split('-')[0]
+        if release_year != wanted_year:
             return False
-    artists = album_result.artists
-    #if multiple artists, make sure that they are in the string ... check for commas  
-    if true_artist.find(', ') != -1:
-        search_artists = true_artist.split(', ')
-        for artist in search_artists:
-            # doesn't take into account whether there are extra artists or not.... 
-            if artist not in artists:
-                return False 
+    artists_found = album.artists
+    if len(artists_found) == 1:
+        if artists_found[0].name != wanted_artist:
+            return False
+    # if spotify has multiple artists listed for an album
+    else:
+        #wanted artist: "Kanye West, Jay-Z"
+        #artists_found = ["Kanye West", "Jay-Z", "Tyler, the Creator"]
+        # potentially need to change this 
+        for artist in artists_found:
+            artist_name = artist.name
+            if artist_name not in wanted_artist:
+                return False
     return True
+
+
+def build_album_dict(album, pitchfork_id, artist, search_album, year):
+    artist_ids = ','.join([x.id for x in album.artists])
+    album_info_dict = {
+        'album_id': album.id,
+        'artist_ids': artist_ids,
+        'pitchfork_id': pitchfork_id,
+        'artist': artist,
+        'album': search_album,
+        'year': year
+    }
+    return album_info_dict
+
 
 def spotify_worker(args):
     client_id, client_secret, df = args
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token)
-
+    results = []
     # loop through each row in pitchfork data to find matching album on spotify 
     for pitchfork_id, artist, search_album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, album, year)
-        albums, = spotify.search(q, types=('album',))
-        
+        q = get_query(artist, search_album, year)
+        albums, = spotify.search(q, types=('album',)
         # If no results found and multiple artists (with Tyler edge case)
         if albums.total == 0 and artist.find(', ') != -1:
             # Loop over artist names and redo search
             query_artists = artist.split(', ')
-            for i in range(len(query_artists)):
-                first_artist = query_artists[i]
-                other_artists = ', '
-                for j in range(len(query_artists)):
-                    if j != i:
-                        other_artists += query_artists[j]
-                    if j != len(query_artists) - 1:
-                        other_artists += ', '
-                rearranged_artist = first_artist + other_artists
-                new_query = get_query(rearranged_artist, album, year)
+            for query_artist in query_artists:
+                new_query = get_query(query_artist, album, year)
                 albums, = spotify.search(new_query, types=('album',))
-                for album in albums.items:
+                for album in albums:
                     if verify_album_match(album_result, search_album, artist, year):
-                        # if correct album is found, add to our data structure (list of dicts?)
-                        album_id = album.id 
-                        #wait how are we taking care of multiple artists? row for each? i forgot... 
-                        break
-            pass
-        # Results found
-        else:
-            # verify that the wanted album is actually found 
+                        results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
+        else: 
             for album in albums.items:
                 if verify_album_match(album_result, search_album, artist, year):
-                    # if correct album is found, add to our data structure (list of dicts?) 
-                    break
-                # check if the artist name is correct - if multiple artists, check that they are each in the original artist string 
-                
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
-        
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-            for x in curr_item['artists']:
-                pass
+                    results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
+
 
 def get_spotify_worker_data(df):
     
@@ -93,93 +84,6 @@ def get_spotify_worker_data(df):
 def spotify_manager(df):
     worker_data = get_spotify_worker_data(df)
     with Pool(2) as p:
-
-
-def call_spotipy_worker(args):
-    SPOTIFY_CLIENT_ID, SPOTIFY_SECRET_KEY, df = args
-    scope = 'user-library-read'
-    sp = spotipy.Spotify(
-        auth_manager = SpotifyOAuth(
-            scope=scope, 
-            client_id=SPOTIFY_CLIENT_ID, 
-            client_secret=SPOTIFY_SECRET_KEY, 
-            redirect_uri='https://stanfordflip.org'
-            )
-        )
-    
-    album_result_list = []
-
-    found = 0
-    not_found = 0
-
-    for pitchfork_id, artist, album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, album, year)
-        results = sp.search(q,type='album')
-        
-        if results['albums']['total'] == 0:
-            not_found += 1
-            continue
-        else:
-            found += 1
-        
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
-        
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-            for x in curr_item['artists']:
-                pass
-
-        print(f"ID {pitchfork_id}")
-    
-    print(found)
-    print(not_found)
-
-def call_spotipy_manager(df):
-    scope = 'user-library-read'
-    sp = spotipy.Spotify(
-        auth_manager = SpotifyOAuth(
-            scope=scope, 
-            client_id=SPOTIFY_CLIENT_ID, 
-            client_secret=SPOTIFY_SECRET_KEY, 
-            redirect_uri='https://stanfordflip.org'
-            )
-        )
-    
-    album_result_list = []
-
-    found = 0
-    not_found = 0
-
-    for pitchfork_id, artist, album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, album, year)
-        results = sp.search(q,type='album')
-        
-        if results['albums']['total'] == 0:
-            not_found += 1
-            continue
-        else:
-            found += 1
-        
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
-        
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-
-        print(f"ID {pitchfork_id}")
-    
-    print(found)
-    print(not_found)
-
 
 if __name__ == '__main__':
     df = parse_pitchfork_csv('bungus.csv')
