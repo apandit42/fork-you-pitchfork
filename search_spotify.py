@@ -14,23 +14,14 @@ def get_query(artist, album, year):
     q = q.replace('“','').replace('”','')
     return q
 
-<<<<<<< HEAD
 def verify_album_match(album, wanted_album, wanted_artist, wanted_year=None):
     album_name = album.name
     if wanted_album != album_name:
-=======
-
-# Verify that album found from spotify search matches actual pitchfork album information
-def verify_album_match(album_result, true_album, true_artist, true_year=None):
-    album_name = album_result.name 
-    if album_result != true_album:
->>>>>>> a008648fee9d9fb4a9d23f1fa4095d949d1bcb10
         return False
     if wanted_year != None:
         release_year = album.release_date.split('-')[0]
         if release_year != wanted_year:
             return False
-<<<<<<< HEAD
     artists_found = album.artists
     if len(artists_found) == 1:
         if artists_found[0].name != wanted_artist:
@@ -60,21 +51,6 @@ def build_album_dict(album, pitchfork_id, artist, search_album, year):
     return album_info_dict
 
 
-=======
-    artists = album_result.artists
-
-    #if multiple artists, make sure that they are in the string ... check for commas  
-    if true_artist.find(', ') != -1:
-        search_artists = true_artist.split(', ')
-        for artist in search_artists:
-            # doesn't take into account whether there are extra artists or not.... 
-            if artist not in artists:
-                return False 
-    return True
-
-
-# Worker function for searching spotify for albums
->>>>>>> a008648fee9d9fb4a9d23f1fa4095d949d1bcb10
 def spotify_worker(args):
     #
     client_id, client_secret, df = args
@@ -98,15 +74,8 @@ def spotify_worker(args):
         else: 
             for album in albums.items:
                 if verify_album_match(album_result, search_album, artist, year):
-<<<<<<< HEAD
                     results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
 
-=======
-                    # if correct album is found, add to our data structure (list of dicts?) 
-                    break
-                # check if the artist name is correct - if multiple artists, check that they are each in the original artist string 
-        
->>>>>>> a008648fee9d9fb4a9d23f1fa4095d949d1bcb10
 
 # Packages all pitchfork data for the manager and multiprocessing calls
 def get_spotify_worker_data(df):
@@ -118,11 +87,6 @@ def get_spotify_worker_data(df):
     chunk_1 = df.iloc[int(total_rows * 1/3):int(total_rows * 2/3), :]
     chunk_2 = df.iloc[int(total_rows * 2/3):, :]
 
-<<<<<<< HEAD
-def spotify_manager(df):
-    worker_data = get_spotify_worker_data(df)
-    with Pool(2) as p:
-=======
     # Now load client_id and secret_key into chunk tuples
     worker_data_package = [
         (chunk_0, AYUSH_SPOTIFY_CLIENT_ID, AYUSH_SPOTIFY_SECRET_KEY),
@@ -154,7 +118,6 @@ def spotify_manager(df):
     # Write it out
     output_df.to_csv('spotify_album_ids.csv')
 
->>>>>>> a008648fee9d9fb4a9d23f1fa4095d949d1bcb10
 
 if __name__ == '__main__':
     df = pd.read_csv('pitchfork_core.csv')
