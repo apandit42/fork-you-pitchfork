@@ -50,9 +50,11 @@ def spotify_worker(args):
             for x in curr_item['artists']:
                 pass
 
+def get_spotify_worker_data(df):
+    
 
 def spotify_manager(df):
-    
+    worker_data = get_spotify_worker_data(df)
     with Pool(2) as p:
 
 
