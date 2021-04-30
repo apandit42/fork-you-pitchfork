@@ -55,16 +55,10 @@ def build_album_dict(album, pitchfork_id, artist, album_name, year):
 
 
 # Spotify worker threads
-def spotify_worker(args, ret_list):
-    # Split up the provided arguments
-    data, client_id, client_secret = args
-
+def spotify_scraper(df, client_id=keys.AYUSH_SPOTIFY_CLIENT_ID, client_secret=keys.AYUSH_SPOTIFY_SECRET_KEY):
     # Setup tk Spotify session
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token, sender=tk.RetryingSender(retries=1000))
-
-    # Convert data to dataframe
-    df = pd.DataFrame(data)
 
     # Begin the results list which will hold all the row dicts
     results = []
@@ -80,7 +74,7 @@ def spotify_worker(args, ret_list):
             year = None
         
         # Confirm run printing
-        print(f'ID {pitchfork_id} w/ {album_name} by {artist} ({year})...')
+        print(f'ID {pitchfork_id} w/ {album_name} by {artist} ({int(year)})...')
         
         # Albums to verify before building
         candidate_matches = []
@@ -127,67 +121,12 @@ def spotify_worker(args, ret_list):
     print(f'TOTAL FOUND: {found_results} ({found_results/(found_results + not_found_results)}%)')
     print(f'TOTAL NOT FOUND {not_found_results} ({not_found_results/(found_results + not_found_results)}%)')
 
-    ret_list.extend(results)
-    # # Returns results
-    # return results
-
-
-# Packages all pitchfork data for the manager and multiprocessing calls
-def get_spotify_worker_data(df):
-    # Get total rows
-    total_rows = df.shape[0]
-    
-    # Split into 3 chunks
-    chunk_0 = df.iloc[0:int(total_rows/3), :]
-    chunk_1 = df.iloc[int(total_rows * 1/3):int(total_rows * 2/3), :]
-    chunk_2 = df.iloc[int(total_rows * 2/3):, :]
-
-    # Now load client_id and secret_key into chunk tuples
-    worker_data_package = [
-        (chunk_0.to_dict('records'), keys.AYUSH_SPOTIFY_CLIENT_ID, keys.AYUSH_SPOTIFY_SECRET_KEY),
-        (chunk_1.to_dict('records'), keys.KIMBERLY_SPOTIFY_CLIENT_ID, keys.KIMBERLY_SPOTIFY_SECRET_KEY),
-        (chunk_2.to_dict('records'), keys.COLIN_SPOTIFY_CLIENT_ID, keys.COLIN_SPOTIFY_SECRET_KEY),
-    ]
-
-    # Return chunked data
-    return worker_data_package
-
-
-# Manager function for searching spotify for all albums
-def spotify_manager(df):
-    # Grab worker data in organized way
-    worker_data = get_spotify_worker_data(df)
-    
-    # 3 keys so hard coded in
-    WORKER_PROCESS_NUM = 3
-    man = mp.Manager()
-    ret_list = man.list()
-    worker_list = []
-    for i in range(WORKER_PROCESS_NUM):
-        p = mp.Process(target=spotify_worker, args=(worker_data[i], ret_list))
-        worker_list.append(p)
-        p.start()
-    
-    for p in worker_list:
-        p.join()
-    
-    worker_output = ret_list
-    # Send data to the pool workers
-    # with mp.Pool(WORKER_THREADS) as p:
-    #     worker_output = p.starmap(spotify_worker, worker_data)
-
-    # Now unpack everything
-    # output_list = [y for x in worker_output for y in x]
-
-    # Now convert to dataframe
-    # output_df = pd.DataFrame(output_list)
-    output_df = pd.DataFrame(list(worker_output))
-
-    # Write it out
-    output_df.to_csv('spotify_album_ids.csv')
+    return results
 
 
 if __name__ == '__main__':
     df = pd.read_csv('pitchfork_core.csv')
     df = df[['pitchfork_id', 'artist', 'album', 'release_year']]
-    spotify_manager(df)
+    result_list = spotify_scraper(df)
+    output_df = pd.DataFrame(result_list)
+    output_df.to_csv('spotify_album_and_artist_ids.csv', index=False)
