@@ -2,11 +2,7 @@ from multiprocessing import Pool
 import pandas as pd
 from pprint import pprint
 import tekore as tk
-
-def parse_pitchfork_csv(filename):
-    df = pd.read_csv(filename)
-    df = df[['pitchfork_id', 'artist', 'album', 'release_year']]
-    return df
+from secrets import *
 
 def get_query(artist, album, year):
     if pd.isna(year):
@@ -25,6 +21,7 @@ def verify_album_match(album_result, true_album, true_artist, true_year=None):
         if release_year != true_year:
             return False
     artists = album_result.artists
+
     #if multiple artists, make sure that they are in the string ... check for commas  
     if true_artist.find(', ') != -1:
         search_artists = true_artist.split(', ')
@@ -74,113 +71,48 @@ def spotify_worker(args):
                     # if correct album is found, add to our data structure (list of dicts?) 
                     break
                 # check if the artist name is correct - if multiple artists, check that they are each in the original artist string 
-                
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
         
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-            for x in curr_item['artists']:
-                pass
 
 def get_spotify_worker_data(df):
+    # Get total rows
+    total_rows = df.shape[0]
     
+    # Split into 3 chunks
+    chunk_0 = df.iloc[0:int(total_rows/3), :]
+    chunk_1 = df.iloc[int(total_rows * 1/3):int(total_rows * 2/3), :]
+    chunk_2 = df.iloc[int(total_rows * 2/3):, :]
+
+    # Now load client_id and secret_key into chunk tuples
+    worker_data_package = [
+        (chunk_0, AYUSH_SPOTIFY_CLIENT_ID, AYUSH_SPOTIFY_SECRET_KEY),
+        (chunk_1, KIMBERLY_SPOTIFY_CLIENT_ID, KIMBERLY_SPOTIFY_SECRET_KEY),
+        (chunk_2, COLIN_SPOTIFY_CLIENT_ID, COLIN_SPOTIFY_SECRET_KEY),
+    ]
+
+    return worker_data_package
+
 
 def spotify_manager(df):
+    # Grab worker data in organized way
     worker_data = get_spotify_worker_data(df)
-    with Pool(2) as p:
-
-
-def call_spotipy_worker(args):
-    SPOTIFY_CLIENT_ID, SPOTIFY_SECRET_KEY, df = args
-    scope = 'user-library-read'
-    sp = spotipy.Spotify(
-        auth_manager = SpotifyOAuth(
-            scope=scope, 
-            client_id=SPOTIFY_CLIENT_ID, 
-            client_secret=SPOTIFY_SECRET_KEY, 
-            redirect_uri='https://stanfordflip.org'
-            )
-        )
     
-    album_result_list = []
+    # 3 keys so hard coded in
+    WORKER_THREADS = 3
 
-    found = 0
-    not_found = 0
-
-    for pitchfork_id, artist, album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, album, year)
-        results = sp.search(q,type='album')
-        
-        if results['albums']['total'] == 0:
-            not_found += 1
-            continue
-        else:
-            found += 1
-        
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
-        
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-            for x in curr_item['artists']:
-                pass
-
-        print(f"ID {pitchfork_id}")
+    # Send data to the pool workers
+    with Pool(WORKER_THREADS) as p:
+        worker_output = p.map(spotify_worker, worker_data)
     
-    print(found)
-    print(not_found)
+    # Now unpack everything
+    output_list = [y for x in worker_output for y in x]
 
-def call_spotipy_manager(df):
-    scope = 'user-library-read'
-    sp = spotipy.Spotify(
-        auth_manager = SpotifyOAuth(
-            scope=scope, 
-            client_id=SPOTIFY_CLIENT_ID, 
-            client_secret=SPOTIFY_SECRET_KEY, 
-            redirect_uri='https://stanfordflip.org'
-            )
-        )
-    
-    album_result_list = []
+    # Now convert to dataframe
+    output_df = pd.DataFrame(output_list)
 
-    found = 0
-    not_found = 0
-
-    for pitchfork_id, artist, album, year in df.itertuples(index=False, name=None):
-        q = get_query(artist, album, year)
-        results = sp.search(q,type='album')
-        
-        if results['albums']['total'] == 0:
-            not_found += 1
-            continue
-        else:
-            found += 1
-        
-        album_info_dict = {
-            'pitchfork_id': pitchfork_id,
-            'artist': artist,
-            'album': album,
-            'year': year,
-        }
-        
-        for curr_item in results['albums']['items']:
-            curr_artists = []
-
-        print(f"ID {pitchfork_id}")
-    
-    print(found)
-    print(not_found)
+    # Write it out
+    output_df.to_csv('spotify_album_ids.csv')
 
 
 if __name__ == '__main__':
-    df = parse_pitchfork_csv('bungus.csv')
-    call_spotipy(df)
+    df = pd.read_csv('pitchfork_core.csv')
+    spotify_manager(df)
