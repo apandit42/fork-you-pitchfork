@@ -52,15 +52,19 @@ def build_album_dict(album, pitchfork_id, artist, search_album, year):
 
 
 def spotify_worker(args):
-    #
     client_id, client_secret, df = args
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token)
     results = []
+    num_found = 0
+    num_not_found = 0
     # loop through each row in pitchfork data to find matching album on spotify 
     for pitchfork_id, artist, search_album, year in df.itertuples(index=False, name=None):
+        found = False
+        if pd.isna(year):
+            year = None
         q = get_query(artist, search_album, year)
-        albums, = spotify.search(q, types=('album',)
+        albums, = spotify.search(q, types=('album',))
         # If no results found and multiple artists (with Tyler edge case)
         if albums.total == 0 and artist.find(', ') != -1:
             # Loop over artist names and redo search
@@ -68,13 +72,22 @@ def spotify_worker(args):
             for query_artist in query_artists:
                 new_query = get_query(query_artist, album, year)
                 albums, = spotify.search(new_query, types=('album',))
-                for album in albums:
+                if len(albums) == 0:
+                    continue
+                for album in albums.items:
                     if verify_album_match(album_result, search_album, artist, year):
                         results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
+                        found = True
         else: 
             for album in albums.items:
                 if verify_album_match(album_result, search_album, artist, year):
                     results.append(build_album_dict(album, pitchfork_id, artist, search_album, year))
+                    found = True
+        if found:
+            num_found += 1
+        else:
+            num_not_found += 1
+    return results, num_found, num_not_found
 
 
 # Packages all pitchfork data for the manager and multiprocessing calls
