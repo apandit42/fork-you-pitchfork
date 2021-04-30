@@ -24,7 +24,6 @@ def verify_album_match(album, wanted_album, wanted_artist, wanted_year=None):
         release_year = album.release_date.split('-')[0]
         if release_year != wanted_year:
             return False
-
     artists_found = album.artists
     if len(artists_found) == 1:
         if artists_found[0].name != wanted_artist:
