@@ -54,13 +54,14 @@ def build_album_dict(album, pitchfork_id, artist, album_name, year):
     return album_info_dict
 
 
-def spotify_worker(data, client_id, client_secret):
+# Spotify worker threads
+def spotify_worker(args, ret_list):
     # Split up the provided arguments
-    # data, client_id, client_secret = args
+    data, client_id, client_secret = args
 
     # Setup tk Spotify session
     app_token  = tk.request_client_token(client_id, client_secret)
-    spotify = tk.Spotify(app_token)
+    spotify = tk.Spotify(app_token, sender=tk.RetryingSender(retries=1000))
 
     # Convert data to dataframe
     df = pd.DataFrame(data)
@@ -126,8 +127,9 @@ def spotify_worker(data, client_id, client_secret):
     print(f'TOTAL FOUND: {found_results} ({found_results/(found_results + not_found_results)}%)')
     print(f'TOTAL NOT FOUND {not_found_results} ({not_found_results/(found_results + not_found_results)}%)')
 
-    # Returns results
-    return results
+    ret_list.extend(results)
+    # # Returns results
+    # return results
 
 
 # Packages all pitchfork data for the manager and multiprocessing calls
@@ -157,17 +159,29 @@ def spotify_manager(df):
     worker_data = get_spotify_worker_data(df)
     
     # 3 keys so hard coded in
-    WORKER_THREADS = 2
-
+    WORKER_PROCESS_NUM = 3
+    man = mp.Manager()
+    ret_list = man.list()
+    worker_list = []
+    for i in range(WORKER_PROCESS_NUM):
+        p = mp.Process(target=spotify_worker, args=(worker_data[i], ret_list))
+        worker_list.append(p)
+        p.start()
+    
+    for p in worker_list:
+        p.join()
+    
+    worker_output = ret_list
     # Send data to the pool workers
-    with mp.Pool(WORKER_THREADS) as p:
-        worker_output = p.starmap(spotify_worker, worker_data)
+    # with mp.Pool(WORKER_THREADS) as p:
+    #     worker_output = p.starmap(spotify_worker, worker_data)
 
     # Now unpack everything
-    output_list = [y for x in worker_output for y in x]
+    # output_list = [y for x in worker_output for y in x]
 
     # Now convert to dataframe
-    output_df = pd.DataFrame(output_list)
+    # output_df = pd.DataFrame(output_list)
+    output_df = pd.DataFrame(list(worker_output))
 
     # Write it out
     output_df.to_csv('spotify_album_ids.csv')
