@@ -38,8 +38,10 @@ def verify_album_match(album_result, true_album, true_artist, true_year=None):
 
 # Worker function for searching spotify for albums
 def spotify_worker(args):
-    #
+    # Split up the provided arguments
     client_id, client_secret, df = args
+
+    # Setup tk Spotify session
     app_token  = tk.request_client_token(client_id, client_secret)
     spotify = tk.Spotify(app_token)
 
@@ -68,17 +70,7 @@ def spotify_worker(args):
                         # if correct album is found, add to our data structure (list of dicts?)
                         album_id = album.id 
                         #wait how are we taking care of multiple artists? row for each? i forgot... 
-                        break
-            pass
-        # Results found
-        else:
-            # verify that the wanted album is actually found 
-            for album in albums.items:
-                if verify_album_match(album_result, search_album, artist, year):
-                    # if correct album is found, add to our data structure (list of dicts?) 
-                    break
-                # check if the artist name is correct - if multiple artists, check that they are each in the original artist string 
-        
+      
 
 # Packages all pitchfork data for the manager and multiprocessing calls
 def get_spotify_worker_data(df):
