@@ -2,7 +2,6 @@
 import pandas as pd
 import sys
 
-
 def setup_pitchfork_csv(src, dest):
     # Load the file up
     df = pd.read_csv(src)
