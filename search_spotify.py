@@ -39,6 +39,8 @@ def verify_album_list(album_list, wanted_album, wanted_artist):
 
 # Verify that the albums match the pitchfork album name, artist, and year
 def verify_album_match(album, wanted_album, wanted_artist):
+    if album.total_tracks == 1:
+        return False
     candidate_name = clean_text(album.name)
     if wanted_album != candidate_name:
         print(f'Album names didnt match {wanted_album} vs {candidate_name}')
