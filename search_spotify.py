@@ -2,7 +2,6 @@ import multiprocessing as mp
 import pandas as pd
 from pprint import pprint
 import tekore as tk
-import keys
 
 
 # Build the query string for spotify search calls
@@ -18,8 +17,8 @@ def clean_text(text):
     elif isinstance(text, float):
         text = int(text)
     text = str(text)
-    text = text.strip().lower().replace('“','').replace('”','')
-    text = text.replace('’','').replace('','')
+    text = text.strip().lower().replace('“','"').replace('”','"')
+    text = text.replace('’',"'").replace('','')
     return text
 
 
@@ -29,14 +28,20 @@ def verify_album_list(album_list, wanted_album, wanted_artist):
     for album in album_list:
         if verify_album_match(album, wanted_album, wanted_artist):
             verified_list += [album]
+    # retry by comparing wanted album w remastered editions
+    if len(verified_list) == 0:
+        wanted_album += ' (remastered)'
+        for album in album_list:
+            if verify_album_match(album, wanted_album, wanted_artist):
+                verified_list += [album]
     return verified_list
 
 
 # Verify that the albums match the pitchfork album name, artist, and year
 def verify_album_match(album, wanted_album, wanted_artist):
     candidate_name = clean_text(album.name)
-    if wanted_album not in candidate_name and candidate_name not in wanted_album :
-        print(f'Names didnt match {wanted_album} vs {album.name}')
+    if wanted_album != candidate_name:
+        print(f'Album names didnt match {wanted_album} vs {candidate_name}')
         return False
 
     # Check if artists match, first single artist case, then multi artist
@@ -72,9 +77,9 @@ def build_album_dict(album, pitchfork_id, artist, album_name):
 
 
 # Spotify worker threads
-def spotify_scraper(df, client_id=keys.AYUSH_SPOTIFY_CLIENT_ID, client_secret=keys.AYUSH_SPOTIFY_SECRET_KEY):
+def spotify_scraper(df):
     # Setup tk Spotify session
-    app_token  = tk.request_client_token(client_id, client_secret)
+    app_token  = tk.request_client_token('0fd39efec46f48228625be76ef6981e7', '38a623ad82d44e8d9c1f5b712e6486e8')
     spotify = tk.Spotify(app_token, sender=tk.RetryingSender(retries=1000))
 
     # Begin the results list which will hold all the row dicts
@@ -107,6 +112,21 @@ def spotify_scraper(df, client_id=keys.AYUSH_SPOTIFY_CLIENT_ID, client_secret=ke
             q = get_query(artist, album_name[:-3])
             albums, = spotify.search(q, types=('album',))
             candidate_matches += verify_album_list(albums.items, album_name[:-3], artist)
+
+        # Try to replace 'and' with '&' 
+        if len(candidate_matches) == 0 and (' and ' in album_name or ' and ' in artist):
+            updated_artist_name = artist.replace(' and ', ' & ')
+            updated_album_name = album_name.replace(' and ', ' & ')
+            q = get_query(updated_artist_name, updated_album_name)
+            albums, = spotify.search(q, types=('album',))
+            candidate_matches += verify_album_list(albums.items, updated_album_name, updated_artist_name)
+        
+        if len(candidate_matches) == 0 and (' and ' in album_name or ' and ' in artist) and album_name.endswith(' ep', -3):
+            updated_album_name = album_name.replace(' and ', ' & ')
+            updated_artist_name = artist.replace(' and ', ' & ')
+            q = get_query(updated_artist_name, updated_album_name[:-3])
+            albums, = spotify.search(q, types=('album',))
+            candidate_matches += verify_album_list(albums.items, updated_album_name, updated_artist_name)
         
         # If that's not enough, try splitting up the artist
         if len(candidate_matches) == 0 and artist.find(', ') != -1:
