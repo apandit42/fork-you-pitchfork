@@ -98,10 +98,6 @@ def spotify_scraper(df):
         candidate_matches = []
         print(f'ID {pitchfork_id} w/ {album_name} by {artist} ...')
 
-        # if counter < 7800:
-        #     counter += 1
-        #     continue
-
         # Build search query & get initial search results
         q = get_query(artist, album_name)
         albums, = spotify.search(q, types=('album',))
@@ -151,12 +147,10 @@ def spotify_scraper(df):
         else:
             print(f'\n*********************\nALBUM NOT FOUND: {album_name} by {artist}!\n**************************\n')
             not_found_results += 1
-        
-        counter += 1
 
     # Now print total found / not found
-    print(f'TOTAL FOUND: {found_results} ({found_results/(found_results + not_found_results)}%)')
-    print(f'TOTAL NOT FOUND {not_found_results} ({not_found_results/(found_results + not_found_results)}%)')
+    print(f'TOTAL FOUND: {found_results} ({100 * found_results/(found_results + not_found_results)}%)')
+    print(f'TOTAL NOT FOUND {not_found_results} ({100 * not_found_results/(found_results + not_found_results)}%)')
     return results
 
 
