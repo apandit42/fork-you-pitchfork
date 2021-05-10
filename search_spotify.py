@@ -217,7 +217,7 @@ class SpotifyIdScraper:
             for candidate_album in candidate_matches:
                 print(f'{candidate_album.name} by {candidate_album.artists[0].name}')
                 new_match = self.build_album_dict(candidate_album, pitchfork_id, artist, album_name)
-                results + [new_match]
+                results += [new_match]
             
             # Modify found status
             if len(candidate_matches):
