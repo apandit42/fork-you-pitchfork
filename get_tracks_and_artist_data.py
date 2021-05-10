@@ -1,6 +1,7 @@
 import pandas as pd
 from pprint import pprint
 import tekore as tk
+import pickle
 
 def get_tracks_and_artist_data:
     albums_found = pd.read_csv('spotify_album_and_artist_ids.csv')
@@ -10,7 +11,7 @@ def get_tracks_and_artist_data:
     num_track = 0
     num_artist = 0
     for group in grouped:
-        chosen_album_id, chosen_artist_id, chosen_album = find_best_match(group)
+        chosen_album = find_best_match(group)
         # construct a list of lists, each internal list w 50 ids 
         for track in chosen_album_id.tracks.items: 
             if len(tracks) // 50 == 0:
@@ -39,31 +40,30 @@ def get_artist_data(lists):
 
 def find_best_match(group):
     if len(group) == 1:
-        return group.album_id, group[0].artist_id 
-    chosen_album_id, chosen_artist_id, chosen_album = None 
+        return spotify.album(group[0].album_id)
+    chosen_album = None 
     top_popularity = 0
     found_explicit = False 
-    for pitchfork_id, album, album_id, artist, artist_id in group:
-            spotify_album = Spotify.album(album_id)
-            popularity = spotify_album.popularity
-            explicit = False
-            for track in spotify_album.tracks.items:
-                if track.explicit:
-                    explicit = True
-                    found_explicit = True
-                    break
-            # if this is the first result we have seen
-            if found_explicit and not explicit:
-                continue 
-            if chosen_album_id == None:
-                chosen_album_id = album_id
-                chosen_artist_id = artist_id
-                top_popularity = popularity
-                chosen_album = Spotify.album(album_id)
-            elif popularity > last_popularity:
-                chosen_album_id = album_id
-                chosen_artist_id = artist_id
-                top_popularity = popularity
-                chosen_album = Spotify.album(album_id)
+    album_ids = []
+    for album_id in group:
+        album_ids.append(album_id)
+    spotify_album_data = spotify.albums(album_ids)
+    for spotify_album in spotify_album_data:
+        popularity = spotify_album.popularity
+        explicit = False
+        for track in spotify_album.tracks.items:
+            if track.explicit:
+                explicit = True
+                found_explicit = True
+                break
+        # if this is the first result we have seen
+        if found_explicit and not explicit:
+            continue 
+        if chosen_album == None:
+            top_popularity = popularity
+            chosen_album = spotify_album
+        elif popularity > last_popularity:
+            top_popularity = popularity
+            chosen_album = spotify_album
     # save the popularity somewhere! 
-    return chosen_album_id, chosen_artist_id, chosen_album
+    return chosen_album
