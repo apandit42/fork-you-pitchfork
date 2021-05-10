@@ -4,9 +4,7 @@ __pycache__/
 .cache
 .vscode
 
-*.csv
-pitchfork_core.csv
-!output_pitchfork_data.csv
+old_csvs/
 
 secrets.py
 keys.py

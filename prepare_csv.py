@@ -6,13 +6,13 @@ import argparse
 def setup_pitchfork_csv(src, dest):
     # Load the file up
     df = pd.read_csv(src)
-    if 'pitchfork_id' not in df.columns:
-        df.insert(0, 'pitchfork_id', range(len(df)))
     # In the working csv only have the pitchfork ID, artist name, album name, score, 
     # link to the full review, and also the release year
-    df = df[['pitchfork_id', 'artist', 'album', 'score', 'link', 'release_year']]
+    df = df[['artist', 'album', 'score', 'link', 'release_year']]
     df = df.dropna()
     df = df[~df.eq('null -index error').any(1)]
+    if 'pitchfork_id' not in df.columns:
+        df.insert(0, 'pitchfork_id', range(len(df)))
     df.to_csv(dest, index=False)
 
 def split_csv(src, dest_base):
@@ -35,9 +35,9 @@ if __name__ == '__main__':
     parser.add_argument('src', help='Source CSV')
     parser.add_argument('dest', help='Destination CSV (basename if splitting)')
     args = parser.parse_args()
-    if parser.setup:
+    if args.setup:
         setup_pitchfork_csv(args.src, args.dest)
-    elif parser.split:
+    elif args.split:
         split_csv(args.src, args.dest)
     else:
         print('No option, bink.')
