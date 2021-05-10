@@ -13,9 +13,13 @@ def get_tracks_and_artist_data:
         chosen_album_id, chosen_artist_id, chosen_album = find_best_match(group)
         # construct a list of lists, each internal list w 50 ids 
         for track in chosen_album_id.tracks.items: 
+            if len(tracks) // 50 == 0:
+                tracks.append([])
             tracks[num_track // 50].append(track.id)
             num_track += 1
         for artist in chosen_album.artists:
+            if len(artists) // 50 == 0:
+                artists.append([])
             artists[num_artist // 50].append(artist.id)
             num_artist += 1
     get_artist_data(artists)
