@@ -74,8 +74,8 @@ class SpotifyIdScraper:
                 return True
         else:
             # NOTE: Might change with new JSON
-            wanted_artist_set = {self.clean_text(x) for x in wanted_artist.split(', ')}
-            artists_found_set = {self.clean_text(y) for x in artists_found for y in x.name.split(', ')}
+            wanted_artist_set = {self.clean_text(x) for x in wanted_artist.split('||')}
+            artists_found_set = {self.clean_text(y) for x in artists_found for y in x.name.split('||')}
             if len(wanted_artist_set & artists_found_set) == 0:
                 print(f'MULTI artists dont match {artists_found[0].name} vs {wanted_artist}')
                 return False
@@ -136,7 +136,10 @@ class SpotifyIdScraper:
             candidate_matches = []
             print(f'ID {pitchfork_id} w/ {album_name} by {artist} ...')
             
-            artist_list = [artist] + [self.clean_text(x) for x in artist.split(', ')]
+            if artist.find('||'):
+                artist_list = [artist] + [self.clean_text(x) for x in artist.split('||')]
+            else:
+                artist_list = [artist]
 
             # loop through each
             for curr_artist in artist_list:
