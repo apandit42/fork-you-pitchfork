@@ -12,6 +12,7 @@ def get_tracks_and_artist_data:
     artists = []
     num_track = 0
     num_artist = 0
+    album_results = []
     for group in grouped:
         chosen_album = find_best_match(group)
         # construct a list of lists, each internal list w 50 ids 
@@ -21,25 +22,66 @@ def get_tracks_and_artist_data:
                 tracks.append([])
             tracks[num_track // 50].append(track.id)
             num_track += 1
-       # dictionary['artists'] =  something separated by pipes? 
+       dictionary['artists'] =  '|'.join([x.name for x in chosen_album.artists])
         for artist in chosen_album.artists:
             if len(artists) // 50 == 0:
                 artists.append([])
             artists[num_artist // 50].append(artist.id)
             num_artist += 1
+        album_results.append[dictionary]
     get_artist_data(artists)
     get_track_data(tracks)
 
 
 def get_track_data(lists):
+    results = []
     for tracks_ids in lists:
         tracks_data = spotify.tracks(tracks_ids)
-        tracks_audio_data = spotify.tracks_audio_features(tracks_ids)
+         for track_data in tracks_data:
+            dictionary = {
+                'duration_ms': track_data.duration_ms,
+                'popularity': track_data.duration_ms
+            }
+        results.append(dictionary)
+    return results
 
+def get_track_audio_data(lists):
+    results = []
+    for track_ids in lists:
+        tracks_audio_data = spotify.tracks_audio_features(tracks_ids)
+        for track_audio_data in tracks_audio_data:
+            dictionary = {
+                'acousticness': track_audio_data.acousticness,
+                'danceability': track_audio_data.danceability,
+                'energy': track_audio_data.energy,
+                'instrumentalness': track_audio_data.instrumentalness,
+                'key': track_audio_data.key,
+                'liveness': track_audio_data.liveness,
+                'loudness': track_audio_data.loudness,
+                'mode': track_audio_data.mode,
+                'speechiness': track_audio_data.speechiness,
+                'tempo': track_audio_data.tempo,
+                'time_signature': track_audio_data.time_signature,
+                'valence': track_audio_data.valence
+            }
+        results.append(dictionary)
+    return results
+        
 
 def get_artist_data(lists):
+    artists = []
     for artists_ids in lists:
         artists_data = spotify.artists(artists_ids)
+        for artist_data in artists_data:
+            dictionary = {
+                'pitchfork_id': pitchfork_id,
+                'num_followers': artist_data.followers.total,
+                'popularity': artist_data.popularity,
+                'name': artist_data.name,
+                'genres': artist_data.genres
+            }
+            artists.append[dictionary]
+    return artists
 
 def find_best_match(group):
     if len(group) == 1:
@@ -71,10 +113,10 @@ def find_best_match(group):
     # save the popularity, name, label, total_tracks release_date somewhere! 
     dictionary = {
         'pitchfork_id': pitchfork_id,
-        'album_name' = chosen_album.name,
-        'track_count' = chosen_album.total_tracks,
-        'release_date' = chosen_album.release_date
-        'popularity' = chosen_album.popularity
+        'album_name': chosen_album.name,
+        'track_count': chosen_album.total_tracks,
+        'release_date': chosen_album.release_date
+        'popularity': chosen_album.popularity
     }
     return chosen_album, dictionary
 
