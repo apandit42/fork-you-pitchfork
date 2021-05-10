@@ -15,11 +15,13 @@ def get_tracks_and_artist_data:
     for group in grouped:
         chosen_album = find_best_match(group)
         # construct a list of lists, each internal list w 50 ids 
+        dictionary['tracks'] = chosen_album.tracks.items
         for track in chosen_album.tracks.items: 
             if len(tracks) // 50 == 0:
                 tracks.append([])
             tracks[num_track // 50].append(track.id)
             num_track += 1
+       # dictionary['artists'] =  something separated by pipes? 
         for artist in chosen_album.artists:
             if len(artists) // 50 == 0:
                 artists.append([])
@@ -31,7 +33,8 @@ def get_tracks_and_artist_data:
 
 def get_track_data(lists):
     for tracks_ids in lists:
-        tracks_data = spotify.tracks_audio_features(tracks_ids)
+        tracks_data = spotify.tracks(tracks_ids)
+        tracks_audio_data = spotify.tracks_audio_features(tracks_ids)
 
 
 def get_artist_data(lists):
@@ -65,8 +68,15 @@ def find_best_match(group):
         elif popularity > top_popularity:
             top_popularity = popularity
             chosen_album = spotify_album
-    # save the popularity somewhere! 
-    return chosen_album
+    # save the popularity, name, label, total_tracks release_date somewhere! 
+    dictionary = {
+        'pitchfork_id': pitchfork_id,
+        'album_name' = chosen_album.name,
+        'track_count' = chosen_album.total_tracks,
+        'release_date' = chosen_album.release_date
+        'popularity' = chosen_album.popularity
+    }
+    return chosen_album, dictionary
 
 
 if __name__ == '__main__':
@@ -87,4 +97,3 @@ if __name__ == '__main__':
     else:
         client_id = KIMBERLY_SPOTIFY_CLIENT_ID
         client_secret = KIMBERLY_SPOTIFY_SECRET_KEY
-    
