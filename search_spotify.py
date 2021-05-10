@@ -113,8 +113,9 @@ class SpotifyIdScraper:
     # scrapes and writes it
     def scrape_and_store(self):
         results = self.scrape()
-        dumpfile = open(f'{self.writepath}.pickle', mode='w')
+        dumpfile = open(f'{self.writepath}.pickle', mode='wb')
         pickle.dump(results, dumpfile)
+        dumpfile.close()
         results_df = pd.DataFrame(results)
         results_df.to_csv(self.writepath, index=False)
     
