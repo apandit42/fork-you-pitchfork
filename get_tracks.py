@@ -2,7 +2,7 @@ import pandas as pd
 from pprint import pprint
 import tekore as tk
 
-def get_tracks:
+def get_tracks():
     albums_found = pd.read_csv('spotify_album_and_artist_ids.csv')
     grouped = albums_found.groupby('pitchfork_id')
     for group in grouped:
@@ -34,7 +34,7 @@ def find_best_match(group):
                 chosen_album_id = album_id
                 chosen_artist_id = artist_id
                 top_popularity = popularity
-            elif popularity > last_popularity:
+            elif popularity > top_popularity:
                 chosen_album_id = album_id
                 chosen_artist_id = artist_id
                 top_popularity = popularity
