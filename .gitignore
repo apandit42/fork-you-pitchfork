@@ -8,3 +8,4 @@ old_csvs/
 
 secrets.py
 keys.py
+.DS_Store

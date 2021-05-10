@@ -2,9 +2,11 @@ import pandas as pd
 from pprint import pprint
 import tekore as tk
 import pickle
+from pathlib import Path
+from keys import *
 
 def get_tracks_and_artist_data:
-    albums_found = pd.read_csv('spotify_album_and_artist_ids.csv')
+    albums_found = pd.read_csv('THANOS.csv')
     grouped = albums_found.groupby('pitchfork_id')
     tracks = []
     artists = []
@@ -67,3 +69,24 @@ def find_best_match(group):
             chosen_album = spotify_album
     # save the popularity somewhere! 
     return chosen_album
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser('Search Spotify')
+    parser.add_argument('--ap', help='Ayush key', action='store_true')
+    parser.add_argument('--ck', help='Colin key', action='store_true')
+    parser.add_argument('--kb', help='Kimberly key', action='store_true')
+    parser.add_argument('--ALBUMMODE', help='Run group albums', action='store_true')
+    parser.add_argument('src', help='Source CSV')
+    parser.add_argument('dest', help='Destination CSV')
+    args = parser.parse_args()
+    if args.ap:
+        client_id = AYUSH_SPOTIFY_CLIENT_ID
+        client_secret = AYUSH_SPOTIFY_SECRET_KEY
+    elif args.ck:
+        client_id = COLIN_SPOTIFY_CLIENT_ID
+        client_secret = COLIN_SPOTIFY_SECRET_KEY
+    else:
+        client_id = KIMBERLY_SPOTIFY_CLIENT_ID
+        client_secret = KIMBERLY_SPOTIFY_SECRET_KEY
+    
