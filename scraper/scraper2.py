@@ -12,6 +12,8 @@ with open ('urls', 'rb') as fp:
     urls = pickle.load(fp)
 
 
+print(len(urls))
+
 #output = np.empty([0, 5])
 #i = 0
 
@@ -51,10 +53,12 @@ def f(url) :
     print('###############################')
     #print(i)
     # print('###############################')
+    with open('pitchfork_data', 'wb') as fp:
+        pickle.dump(add, fp)
     return add
 
 if __name__ == "__main__":
     with Pool (42) as p:
         output = p.map(f, urls)
         with open('pitchfork_data', 'wb') as fp:
-            pickle.dump(output, fp)
+           pickle.dump(output, fp)
