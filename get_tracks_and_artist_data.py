@@ -15,7 +15,7 @@ def get_tracks_and_artist_data:
     for group in grouped:
         chosen_album = find_best_match(group)
         # construct a list of lists, each internal list w 50 ids 
-        for track in chosen_album_id.tracks.items: 
+        for track in chosen_album.tracks.items: 
             if len(tracks) // 50 == 0:
                 tracks.append([])
             tracks[num_track // 50].append(track.id)
@@ -32,13 +32,11 @@ def get_tracks_and_artist_data:
 def get_track_data(lists):
     for tracks_ids in lists:
         tracks_data = spotify.tracks_audio_features(tracks_ids)
-    
+
 
 def get_artist_data(lists):
     for artists_ids in lists:
         artists_data = spotify.artists(artists_ids)
-        
-
 
 def find_best_match(group):
     if len(group) == 1:
@@ -64,7 +62,7 @@ def find_best_match(group):
         if chosen_album == None:
             top_popularity = popularity
             chosen_album = spotify_album
-        elif popularity > last_popularity:
+        elif popularity > top_popularity:
             top_popularity = popularity
             chosen_album = spotify_album
     # save the popularity somewhere! 
