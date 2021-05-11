@@ -109,7 +109,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
         
         # Now, just get the album with max popularity
         popularity_and_album = [(album.popularity, album) for album in best_candidates]
-        highest_popularity, most_popular_album = max(popularity_and_album)
+        highest_popularity, most_popular_album = max(popularity_and_album, key=lambda x:x[0])
         print(f'Most popular album is {most_popular_album.name} w/ score {highest_popularity} ...')
         return most_popular_album
 
