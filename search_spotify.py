@@ -1,6 +1,4 @@
-import multiprocessing as mp
 import pandas as pd
-from pprint import pprint
 import tekore as tk
 from unidecode import unidecode
 import argparse
@@ -10,6 +8,7 @@ import hashlib
 from keys import *
 import re
 
+
 class SpotifyIdScraper:
     def __init__(self, client_id, client_secret, filepath, writepath):
         self.app_token = tk.request_client_token(client_id, client_secret)
@@ -17,7 +16,6 @@ class SpotifyIdScraper:
         self.filepath = filepath
         self.df = pd.read_csv(filepath)
         self.writepath = writepath
-        self.core_df = self.df[['pitchfork_id', 'artist', 'album']]
 
     # Build the query string for spotify search calls
     def get_query(self, artist, album):
@@ -132,6 +130,7 @@ class SpotifyIdScraper:
 
     # scrapes and writes it
     def scrape_and_store(self):
+        self.core_df = self.df[['pitchfork_id', 'artist', 'album']]
         results = self.scrape()
         dumpfile = open(f'{self.writepath}.pickle', mode='wb')
         pickle.dump(results, dumpfile)
