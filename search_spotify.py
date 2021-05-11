@@ -167,53 +167,53 @@ class SpotifyIdScraper:
                 if len(candidate_matches) != 0:
                     break
                 
-                candidate_matches += self.base_search(curr_artist, album_name)
+                candidate_matches += self.search(curr_artist, album_name)
                 
                 # removing EPs
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
-                    candidate_matches += self.base_search(curr_artist, updated_album)
+                    candidate_matches += self.search(curr_artist, updated_album)
                 
                 # removing and w/ & album
                 if len(candidate_matches) == 0:
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(curr_artist, updated_album)
+                    candidate_matches += self.search(curr_artist, updated_album)
                 
                 # removing and w/ & artist
                 if len(candidate_matches) == 0:
                     updated_artist = self.replace_and(artist)
-                    candidate_matches += self.base_search(updated_artist, album_name)
+                    candidate_matches += self.search(updated_artist, album_name)
                 
                 # adding remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now in combination, ep and and
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now in combination, ep and reverse and
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and_reverse(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # ep and and and remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
 
                 # Now in combination, ep and reverse and and remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and_reverse(album_name)
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now all above + the name and stuff (and and)
                 if len(candidate_matches) == 0:
@@ -221,7 +221,7 @@ class SpotifyIdScraper:
                     updated_album = self.replace_and(album_name)
                     updated_album = self.replace_remastered(album_name)
                     updated_artist = self.replace_and(artist)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now all above + the name reverse and stuff
                 if len(candidate_matches) == 0:
@@ -229,20 +229,20 @@ class SpotifyIdScraper:
                     updated_album = self.replace_and_reverse(album_name)
                     updated_album = self.replace_remastered(album_name)
                     updated_artist = self.replace_and_reverse(artist)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now remove parentheses + ep
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now remove parentheses + other tings
                 if len(candidate_matches) == 0:
                     updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
             
             # Back out of the loop
             
