@@ -5,6 +5,8 @@ import tekore as tk
 from unidecode import unidecode
 import argparse
 import pickle
+from pathlib import Path
+import hashlib
 from keys import *
 import re
 
@@ -82,6 +84,23 @@ class SpotifyIdScraper:
                 return False
             else:
                 return True
+
+    # get hash hex digest for string data
+    def get_hash(self, data):
+        return hashlib.md5(data.encode()).hexdigest()
+    
+    # search wrapper with file loading checks
+    def search(self, artist, album_name):
+        q = self.get_query(artist, album_name)
+        cache_str = self.get_hash(q)
+        cache_file = Path(f'api/search/{cache_str}.pickle')
+        if cache_file.is_file():
+            cache_data = pickle.loads(cache_file.read_bytes())
+            return cache_data
+        else:
+            data = self.base_search(artist, album_name)
+            cache_file.write_bytes(pickle.dumps(data))
+            return data
 
     # base search to get albums
     def base_search(self, artist, album_name):
