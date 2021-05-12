@@ -30,7 +30,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
 
         # Check which files have been cached already
         for pitchfork_id, artist_id in artist_list:
-            filepath = Path(f'api/artists/{pitchfork_id}_{artist_list}.pickle')
+            filepath = Path(f'api/artists/{pitchfork_id}_{artist_id}.pickle')
             if filepath.is_file():
                 data = pickle.loads(filepath.read_bytes())
                 all_tuples += [(pitchfork_id, data)]
