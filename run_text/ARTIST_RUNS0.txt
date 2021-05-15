@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/ayusherish/fork-you-pitchfork/scrape_spotify.py", line 290, in <module>
+    chungus.scrape_artists()
+  File "/home/ayusherish/fork-you-pitchfork/scrape_spotify.py", line 151, in scrape_artists
+    artists_df = self.df[['pitchfork_id', 'artist_id']]
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 3030, in __getitem__
+    indexer = self.loc._get_listlike_indexer(key, axis=1, raise_missing=True)[1]
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/indexing.py", line 1266, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis, raise_missing=raise_missing)
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/indexing.py", line 1316, in _validate_read_indexer
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['artist_id'] not in index"
