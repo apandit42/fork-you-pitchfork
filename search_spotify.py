@@ -34,7 +34,7 @@ class SpotifyIdScraper:
     
     # Build each album dict for the list
     def build_album_dict(self, album, pitchfork_id, artist, album_name):
-        artist_id = ','.join([x.id for x in album.artists])
+        artist_id = '|'.join([x.id for x in album.artists])
         album_info_dict = {
             'pitchfork_id': pitchfork_id,
             'album': album_name,
@@ -156,7 +156,7 @@ class SpotifyIdScraper:
             candidate_matches = []
             print(f'ID {pitchfork_id} w/ {album_name} by {artist} ...')
             
-            if artist.find('||'):
+            if artist.find('||') != -1:
                 artist_list = [artist] + [self.clean_text(x) for x in artist.split('||')]
             else:
                 artist_list = [artist]

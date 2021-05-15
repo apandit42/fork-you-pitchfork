@@ -167,7 +167,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
         # be connected to the original pitchfork_id row from the first dataset
         full_artist_tuples = []
         for pitchfork_id, artist_id in raw_artist_tuples:
-            full_artist_tuples += [(pitchfork_id, split_id) for split_id in artist_id.split(',')]
+            full_artist_tuples += [(pitchfork_id, split_id) for split_id in artist_id.split('|')]
         
         # Now pass this list to get_artists, expect a list of dicts back
         artist_data_dicts = self.get_artists(full_artist_tuples)
