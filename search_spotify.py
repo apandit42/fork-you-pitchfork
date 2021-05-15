@@ -6,6 +6,7 @@ from unidecode import unidecode
 import argparse
 import pickle
 from keys import *
+import re
 
 class SpotifyIdScraper:
     def __init__(self, client_id, client_secret, filepath, writepath):
@@ -206,9 +207,22 @@ class SpotifyIdScraper:
                 # Now all above + the name reverse and stuff
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
-                    updated_album = self.replace_and(album_name)
+                    updated_album = self.replace_and_reverse(album_name)
                     updated_album = self.replace_remastered(album_name)
-                    updated_artist = self.replace_and(artist)
+                    updated_artist = self.replace_and_reverse(artist)
+                    candidate_matches += self.base_search(updated_artist, updated_album)
+                
+                # Now remove parentheses + ep
+                if len(candidate_matches) == 0:
+                    updated_album = self.remove_ep(album_name)
+                    updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
+                    candidate_matches += self.base_search(updated_artist, updated_album)
+                
+                # Now remove parentheses + other tings
+                if len(candidate_matches) == 0:
+                    updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
+                    updated_album = self.remove_ep(album_name)
+                    updated_album = self.replace_and(album_name)
                     candidate_matches += self.base_search(updated_artist, updated_album)
             
             # Back out of the loop
