@@ -1,12 +1,13 @@
-import multiprocessing as mp
 import pandas as pd
-from pprint import pprint
 import tekore as tk
 from unidecode import unidecode
 import argparse
 import pickle
+from pathlib import Path
+import hashlib
 from keys import *
 import re
+
 
 class SpotifyIdScraper:
     def __init__(self, client_id, client_secret, filepath, writepath):
@@ -15,7 +16,6 @@ class SpotifyIdScraper:
         self.filepath = filepath
         self.df = pd.read_csv(filepath)
         self.writepath = writepath
-        self.core_df = self.df[['pitchfork_id', 'artist', 'album']]
 
     # Build the query string for spotify search calls
     def get_query(self, artist, album):
@@ -34,7 +34,7 @@ class SpotifyIdScraper:
     
     # Build each album dict for the list
     def build_album_dict(self, album, pitchfork_id, artist, album_name):
-        artist_id = ','.join([x.id for x in album.artists])
+        artist_id = '|'.join([x.id for x in album.artists])
         album_info_dict = {
             'pitchfork_id': pitchfork_id,
             'album': album_name,
@@ -83,6 +83,23 @@ class SpotifyIdScraper:
             else:
                 return True
 
+    # get hash hex digest for string data
+    def get_hash(self, data):
+        return hashlib.md5(data.encode()).hexdigest()
+    
+    # search wrapper with file loading checks
+    def search(self, artist, album_name):
+        q = self.get_query(artist, album_name)
+        cache_str = self.get_hash(q)
+        cache_file = Path(f'api/search/{cache_str}.pickle')
+        if cache_file.is_file():
+            cache_data = pickle.loads(cache_file.read_bytes())
+            return cache_data
+        else:
+            data = self.base_search(artist, album_name)
+            cache_file.write_bytes(pickle.dumps(data))
+            return data
+
     # base search to get albums
     def base_search(self, artist, album_name):
         q = self.get_query(artist, album_name)
@@ -113,6 +130,7 @@ class SpotifyIdScraper:
 
     # scrapes and writes it
     def scrape_and_store(self):
+        self.core_df = self.df[['pitchfork_id', 'artist', 'album']]
         results = self.scrape()
         dumpfile = open(f'{self.writepath}.pickle', mode='wb')
         pickle.dump(results, dumpfile)
@@ -138,7 +156,7 @@ class SpotifyIdScraper:
             candidate_matches = []
             print(f'ID {pitchfork_id} w/ {album_name} by {artist} ...')
             
-            if artist.find('||'):
+            if artist.find('||') != -1:
                 artist_list = [artist] + [self.clean_text(x) for x in artist.split('||')]
             else:
                 artist_list = [artist]
@@ -148,53 +166,53 @@ class SpotifyIdScraper:
                 if len(candidate_matches) != 0:
                     break
                 
-                candidate_matches += self.base_search(curr_artist, album_name)
+                candidate_matches += self.search(curr_artist, album_name)
                 
                 # removing EPs
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
-                    candidate_matches += self.base_search(curr_artist, updated_album)
+                    candidate_matches += self.search(curr_artist, updated_album)
                 
                 # removing and w/ & album
                 if len(candidate_matches) == 0:
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(curr_artist, updated_album)
+                    candidate_matches += self.search(curr_artist, updated_album)
                 
                 # removing and w/ & artist
                 if len(candidate_matches) == 0:
                     updated_artist = self.replace_and(artist)
-                    candidate_matches += self.base_search(updated_artist, album_name)
+                    candidate_matches += self.search(updated_artist, album_name)
                 
                 # adding remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now in combination, ep and and
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now in combination, ep and reverse and
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and_reverse(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # ep and and and remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
 
                 # Now in combination, ep and reverse and and remastered
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and_reverse(album_name)
                     updated_album = self.replace_remastered(album_name)
-                    candidate_matches += self.base_search(artist, updated_album)
+                    candidate_matches += self.search(artist, updated_album)
                 
                 # Now all above + the name and stuff (and and)
                 if len(candidate_matches) == 0:
@@ -202,7 +220,7 @@ class SpotifyIdScraper:
                     updated_album = self.replace_and(album_name)
                     updated_album = self.replace_remastered(album_name)
                     updated_artist = self.replace_and(artist)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now all above + the name reverse and stuff
                 if len(candidate_matches) == 0:
@@ -210,20 +228,20 @@ class SpotifyIdScraper:
                     updated_album = self.replace_and_reverse(album_name)
                     updated_album = self.replace_remastered(album_name)
                     updated_artist = self.replace_and_reverse(artist)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now remove parentheses + ep
                 if len(candidate_matches) == 0:
                     updated_album = self.remove_ep(album_name)
                     updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
                 
                 # Now remove parentheses + other tings
                 if len(candidate_matches) == 0:
                     updated_album = re.sub(r'\s*\(.*\)\s*', r'', album_name)
                     updated_album = self.remove_ep(album_name)
                     updated_album = self.replace_and(album_name)
-                    candidate_matches += self.base_search(updated_artist, updated_album)
+                    candidate_matches += self.search(updated_artist, updated_album)
             
             # Back out of the loop
             
