@@ -18,6 +18,11 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
     def get_tracks(self, track_chunk):
         pass
     
+    # Scrape all the tracks
+    def scrape_tracks(self):
+        # Get right columns from df
+        tracks_df = self.df[['pitchfork_id', '']]
+
     # Spotify API call for all the artists
     def get_artists_base(self, artist_chunk):
         return self.Spotify.artists(artist_chunk)
