@@ -5,6 +5,7 @@ __pycache__/
 .vscode
 
 old_csvs/
+api/
 
 secrets.py
 keys.py
