@@ -1,0 +1,486 @@
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 90055
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/46tB10U8Loj3y0jHIDipGo'
+  id = '46tB10U8Loj3y0jHIDipGo'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Revisionist History'
+  popularity = 15
+  preview_url = 'https://p.scdn.co/mp3-preview/2702ebbec3fdc41e75cbeb0b...'
+  restrictions = None
+  track_number = 1
+  type = 'track'
+  uri = 'spotify:track:46tB10U8Loj3y0jHIDipGo'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.564
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/46tB10U8Loj...'
+  danceability = 0.667
+  duration_ms = 90056
+  energy = 0.265
+  id = '46tB10U8Loj3y0jHIDipGo'
+  instrumentalness = 0
+  key = 6
+  liveness = 0.661
+  loudness = -20.063
+  mode = 1
+  speechiness = 0.912
+  tempo = 112.88
+  time_signature = 3
+  track_href = 'https://api.spotify.com/v1/tracks/46tB10U8Loj3y0jHIDipGo'
+  type = 'audio_features'
+  uri = 'spotify:track:46tB10U8Loj3y0jHIDipGo'
+  valence = 0.679
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 276120
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/6RJBLojLrqu76CazS7iBmr'
+  id = '6RJBLojLrqu76CazS7iBmr'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'The American Negro'
+  popularity = 21
+  preview_url = 'https://p.scdn.co/mp3-preview/07c9e8aab8ff1562be23eb0d...'
+  restrictions = None
+  track_number = 2
+  type = 'track'
+  uri = 'spotify:track:6RJBLojLrqu76CazS7iBmr'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.127
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/6RJBLojLrqu...'
+  danceability = 0.655
+  duration_ms = 276121
+  energy = 0.709
+  id = '6RJBLojLrqu76CazS7iBmr'
+  instrumentalness = 0.0781
+  key = 4
+  liveness = 0.459
+  loudness = -7.811
+  mode = 0
+  speechiness = 0.0713
+  tempo = 136.038
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/6RJBLojLrqu76CazS7iBmr'
+  type = 'audio_features'
+  uri = 'spotify:track:6RJBLojLrqu76CazS7iBmr'
+  valence = 0.68
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 45302
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/5kKNpUFPuz9P8rWGXpKKIh'
+  id = '5kKNpUFPuz9P8rWGXpKKIh'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'The Black Broadcast'
+  popularity = 13
+  preview_url = 'https://p.scdn.co/mp3-preview/8bb9792b642abbf3269dc19d...'
+  restrictions = None
+  track_number = 3
+  type = 'track'
+  uri = 'spotify:track:5kKNpUFPuz9P8rWGXpKKIh'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.699
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/5kKNpUFPuz9...'
+  danceability = 0.669
+  duration_ms = 45302
+  energy = 0.203
+  id = '5kKNpUFPuz9P8rWGXpKKIh'
+  instrumentalness = 0
+  key = 8
+  liveness = 0.0973
+  loudness = -19.691
+  mode = 0
+  speechiness = 0.902
+  tempo = 118.245
+  time_signature = 3
+  track_href = 'https://api.spotify.com/v1/tracks/5kKNpUFPuz9P8rWGXpKKIh'
+  type = 'audio_features'
+  uri = 'spotify:track:5kKNpUFPuz9P8rWGXpKKIh'
+  valence = 0.71
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 202033
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/4PCaCE8OyzULcRxTgaSpyd'
+  id = '4PCaCE8OyzULcRxTgaSpyd'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Revolutionize'
+  popularity = 18
+  preview_url = 'https://p.scdn.co/mp3-preview/96deff60d1a6ef2425e966ea...'
+  restrictions = None
+  track_number = 4
+  type = 'track'
+  uri = 'spotify:track:4PCaCE8OyzULcRxTgaSpyd'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.0687
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/4PCaCE8OyzU...'
+  danceability = 0.509
+  duration_ms = 202033
+  energy = 0.874
+  id = '4PCaCE8OyzULcRxTgaSpyd'
+  instrumentalness = 2.2e-05
+  key = 11
+  liveness = 0.431
+  loudness = -4.515
+  mode = 0
+  speechiness = 0.0437
+  tempo = 136.051
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/4PCaCE8OyzULcRxTgaSpyd'
+  type = 'audio_features'
+  uri = 'spotify:track:4PCaCE8OyzULcRxTgaSpyd'
+  valence = 0.692
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 38756
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/0Rfyo4OsXmHXQlOGnPR7ZP'
+  id = '0Rfyo4OsXmHXQlOGnPR7ZP'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Double Consciousness'
+  popularity = 12
+  preview_url = 'https://p.scdn.co/mp3-preview/00747113007e2bdade53a6f1...'
+  restrictions = None
+  track_number = 5
+  type = 'track'
+  uri = 'spotify:track:0Rfyo4OsXmHXQlOGnPR7ZP'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.692
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/0Rfyo4OsXmH...'
+  danceability = 0.71
+  duration_ms = 38756
+  energy = 0.217
+  id = '0Rfyo4OsXmHXQlOGnPR7ZP'
+  instrumentalness = 0
+  key = 3
+  liveness = 0.208
+  loudness = -16.987
+  mode = 0
+  speechiness = 0.891
+  tempo = 121.194
+  time_signature = 3
+  track_href = 'https://api.spotify.com/v1/tracks/0Rfyo4OsXmHXQlOGnPR7ZP'
+  type = 'audio_features'
+  uri = 'spotify:track:0Rfyo4OsXmHXQlOGnPR7ZP'
+  valence = 0.678
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 115757
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/54zEGUq9qqIbpuusZxgIOE'
+  id = '54zEGUq9qqIbpuusZxgIOE'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Watch the Children'
+  popularity = 14
+  preview_url = 'https://p.scdn.co/mp3-preview/d4de2def4160021f4f70ef48...'
+  restrictions = None
+  track_number = 6
+  type = 'track'
+  uri = 'spotify:track:54zEGUq9qqIbpuusZxgIOE'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.0402
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/54zEGUq9qqI...'
+  danceability = 0.601
+  duration_ms = 115757
+  energy = 0.771
+  id = '54zEGUq9qqIbpuusZxgIOE'
+  instrumentalness = 0.947
+  key = 9
+  liveness = 0.11
+  loudness = -8.884
+  mode = 1
+  speechiness = 0.0294
+  tempo = 135.981
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/54zEGUq9qqIbpuusZxgIOE'
+  type = 'audio_features'
+  uri = 'spotify:track:54zEGUq9qqIbpuusZxgIOE'
+  valence = 0.755
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 151396
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/2shjNrXNpPvuOsrwI0qoQg'
+  id = '2shjNrXNpPvuOsrwI0qoQg'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Dying on the Run'
+  popularity = 24
+  preview_url = 'https://p.scdn.co/mp3-preview/df0029b8ae820bf7dccf430b...'
+  restrictions = None
+  track_number = 7
+  type = 'track'
+  uri = 'spotify:track:2shjNrXNpPvuOsrwI0qoQg'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.0468
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/2shjNrXNpPv...'
+  danceability = 0.569
+  duration_ms = 151397
+  energy = 0.674
+  id = '2shjNrXNpPvuOsrwI0qoQg'
+  instrumentalness = 0.313
+  key = 2
+  liveness = 0.211
+  loudness = -8.729
+  mode = 1
+  speechiness = 0.0264
+  tempo = 129.901
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/2shjNrXNpPvuOsrwI0qoQg'
+  type = 'audio_features'
+  uri = 'spotify:track:2shjNrXNpPvuOsrwI0qoQg'
+  valence = 0.576
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 56313
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/1NYJnC5W8UI6DMhq75TkuV'
+  id = '1NYJnC5W8UI6DMhq75TkuV'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Intransigence of the Blind'
+  popularity = 12
+  preview_url = 'https://p.scdn.co/mp3-preview/f7ede406c20a7ba87f95f158...'
+  restrictions = None
+  track_number = 8
+  type = 'track'
+  uri = 'spotify:track:1NYJnC5W8UI6DMhq75TkuV'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.603
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/1NYJnC5W8UI...'
+  danceability = 0.655
+  duration_ms = 56314
+  energy = 0.188
+  id = '1NYJnC5W8UI6DMhq75TkuV'
+  instrumentalness = 0
+  key = 3
+  liveness = 0.315
+  loudness = -17.963
+  mode = 1
+  speechiness = 0.768
+  tempo = 113.076
+  time_signature = 5
+  track_href = 'https://api.spotify.com/v1/tracks/1NYJnC5W8UI6DMhq75TkuV'
+  type = 'audio_features'
+  uri = 'spotify:track:1NYJnC5W8UI6DMhq75TkuV'
+  valence = 0.567
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 161416
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/0bUQ0haS3jvvp6s90m9WUX'
+  id = '0bUQ0haS3jvvp6s90m9WUX'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'James Mincey Jr.'
+  popularity = 14
+  preview_url = 'https://p.scdn.co/mp3-preview/1802a443697ec1375f93a900...'
+  restrictions = None
+  track_number = 9
+  type = 'track'
+  uri = 'spotify:track:0bUQ0haS3jvvp6s90m9WUX'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.148
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/0bUQ0haS3jv...'
+  danceability = 0.6
+  duration_ms = 161417
+  energy = 0.598
+  id = '0bUQ0haS3jvvp6s90m9WUX'
+  instrumentalness = 0.594
+  key = 2
+  liveness = 0.326
+  loudness = -8.866
+  mode = 0
+  speechiness = 0.0333
+  tempo = 135.997
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/0bUQ0haS3jvvp6s90m9WUX'
+  type = 'audio_features'
+  uri = 'spotify:track:0bUQ0haS3jvvp6s90m9WUX'
+  valence = 0.546
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 39291
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/0KCWYzeERiiICvsZqGDaRc'
+  id = '0KCWYzeERiiICvsZqGDaRc'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Disadvantaged Without a Title'
+  popularity = 11
+  preview_url = 'https://p.scdn.co/mp3-preview/04c43d137cdfcf33091addaf...'
+  restrictions = None
+  track_number = 10
+  type = 'track'
+  uri = 'spotify:track:0KCWYzeERiiICvsZqGDaRc'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.407
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/0KCWYzeERii...'
+  danceability = 0.729
+  duration_ms = 39292
+  energy = 0.291
+  id = '0KCWYzeERiiICvsZqGDaRc'
+  instrumentalness = 5.72e-06
+  key = 8
+  liveness = 0.365
+  loudness = -22.123
+  mode = 1
+  speechiness = 0.942
+  tempo = 111.825
+  time_signature = 1
+  track_href = 'https://api.spotify.com/v1/tracks/0KCWYzeERiiICvsZqGDaRc'
+  type = 'audio_features'
+  uri = 'spotify:track:0KCWYzeERiiICvsZqGDaRc'
+  valence = 0.685
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 110699
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/492UumNAPPKJT3SZSZaVK7'
+  id = '492UumNAPPKJT3SZSZaVK7'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'Mama (You Will Make It)'
+  popularity = 12
+  preview_url = 'https://p.scdn.co/mp3-preview/e48dbb8f98eaee6f454487c0...'
+  restrictions = None
+  track_number = 11
+  type = 'track'
+  uri = 'spotify:track:492UumNAPPKJT3SZSZaVK7'
+Audio Data: AudioFeatures with fields:
+  acousticness = 0.0155
+  analysis_url = 'https://api.spotify.com/v1/audio-analysis/492UumNAPPK...'
+  danceability = 0.581
+  duration_ms = 110699
+  energy = 0.651
+  id = '492UumNAPPKJT3SZSZaVK7'
+  instrumentalness = 0.349
+  key = 1
+  liveness = 0.209
+  loudness = -8.458
+  mode = 1
+  speechiness = 0.0317
+  tempo = 146.021
+  time_signature = 4
+  track_href = 'https://api.spotify.com/v1/tracks/492UumNAPPKJT3SZSZaVK7'
+  type = 'audio_features'
+  uri = 'spotify:track:492UumNAPPKJT3SZSZaVK7'
+  valence = 0.848
+
+Pitchfork_id: 0
+Track Data: FullTrack with fields:
+  album = SimpleAlbum(album_group, album_type, artists, ...)
+  artists = [1 x SimpleArtist(external_urls, href, id, name, type, uri)]
+  available_markets = [128 x str]
+  disc_number = 1
+  duration_ms = 7159
+  explicit = False
+  external_ids = {'isrc'}
+  external_urls = {'spotify'}
+  href = 'https://api.spotify.com/v1/tracks/6HUTMzDfg3IAYeVJaxjYDE'
+  id = '6HUTMzDfg3IAYeVJaxjYDE'
+  is_local = False
+  is_playable = None
+  linked_from = None
+  name = 'The Black Queen'
+  popularity = 0
+  preview_url = 'https://p.scdn.co/mp3-preview/8560bc99249b34783c51b0b3...'
+  restrictions = None
+  track_number = 12
+  type = 'track'
+  uri = 'spotify:track:6HUTMzDfg3IAYeVJaxjYDE'
+Audio Data: None
+
