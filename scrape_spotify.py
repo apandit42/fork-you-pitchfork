@@ -154,6 +154,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
                 'pitchfork_id': pitchfork_id,
                 'track_id': track_data.id,
                 'artist_id': '|'.join([x.id for x in track_data.artists]),
+                'artist_name': '|'.join([x.name for x in track_data.artists]),
                 'duration': track_data.duration_ms,
                 'explicit': track_data.explicit,
                 'name': track_data.name,
