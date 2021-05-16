@@ -32,6 +32,10 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
             if track_filepath.is_file() and audio_features_filepath.is_file():
                 track_data = pickle.loads(track_filepath.read_bytes())
                 audio_feature_data = pickle.loads(audio_features_filepath.read_bytes())
+                if audio_feature_data is None:
+                    print("Audio feature data is none for track filepath: " + track_filepath)
+                    print("and audio feature filepath: " + audio_features_filepath)
+                    raise Exception(" AUDIO FEATURES IS NONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 all_tracks_tuples += [(pitchfork_id, track_data)]
                 all_audio_features_tuples += [(pitchfork_id, audio_feature_data)]
             else:
@@ -49,7 +53,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
             # and also add them to the all tuples list
             for i in range(len(chunk)):
                 track_filepath = Path(f'api/tracks/{chunk_pitchfork_ids[i]}_{chunk_track_ids[i]}.pickle')
-                audio_features_filepath = Path(f'api/audio_features/{pitchfork_id}_{track_id}.pickle')
+                audio_features_filepath = Path(f'api/audio_features/{chunk_pitchfork_ids[i]}_{chunk_track_ids[i]}.pickle')
                 track_filepath.write_bytes(pickle.dumps(track_results[i]))
                 audio_features_filepath.write_bytes(pickle.dumps(audio_feature_results[i]))
                 print(f'Got track {track_results[i].name} ...')
