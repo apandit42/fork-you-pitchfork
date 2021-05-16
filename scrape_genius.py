@@ -1,4 +1,6 @@
 import pandas as pd
+import time
+import random
 import pickle
 from pathlib import Path
 import lyricsgenius as lg
@@ -24,6 +26,7 @@ class GeniusScraper:
     
     # Worker thread
     def worker_thread(self, row):
+        time.sleep(random.randint(0, 5))
         # Generate a new genius
         workerGenius = lg.Genius(self.client_token, retries=10)
         # Unpack row
@@ -37,7 +40,33 @@ class GeniusScraper:
             genius_data = None
             for artist in split_artists:
                 song = workerGenius.search_song(title=name, artist=artist)
-                if song is not None
+                if song is not None and song.title == name and song.artist == artist:
+                    genius_data = song
+            if genius_data is None:
+                for artist in split_artists:
+                    q_name = self.replace_and_reverse(unidecode(name).lower().strip())
+                    q_artist = self.replace_and_reverse(unidecode(artist).lower().strip())
+                    song = workerGenius.search_song(title=q_name, artist=q_artist)
+                    if song is not None and song.title == q_name and song.artist == q_artist:
+                        genius_data = song
+        # Now we have a genius data var populated, just return the written dict
+        if genius_data is None:
+            return None
+        stats_data = genius_data.stats.__dict__
+        genius_dict = {
+            'pitchfork_id': pitchfork_id,
+            'track_id': track_id,
+            'name': name,
+            'artist_name': artist_name,
+            'genius_name': genius_data.title,
+            'genius_full_name': genius_data.full_title,
+            'genius_id': genius_data.id,
+            'lyrics': genius_data.lyrics,
+            'genius_url': genius_data.url,
+            'genius_hot': stats_data.get('hot', ''),
+            'genius_pageviews': stats_data.get('pageviews', '')
+        }
+        return genius_dict
 
     # multi thread
     def main_multi_thread(self):
@@ -94,7 +123,7 @@ class GeniusScraper:
                         q_name = self.replace_and_reverse(unidecode(name).lower().strip())
                         q_artist = self.replace_and_reverse(unidecode(split_name).lower().strip())
                         song = self.Genius.search_song(title=q_name, artist=q_artist)
-                        if song is not None and song.title == name and song.artist == split_name:
+                        if song is not None and song.title == q_name and song.artist == q_artist:
                             candidate = song
             except Exception:
                 print(f'EXCEPTION EXCEPTION EXCEPTION')
