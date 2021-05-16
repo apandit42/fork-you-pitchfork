@@ -11,6 +11,10 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
     def __init__(self, client_id, client_secret, filepath, writepath):
         super().__init__(client_id, client_secret, filepath, writepath)
 
+    # Scrape all the featured artist info
+    def scrape_featureds(self):
+        pass
+
     # Spotify API call for tracks audio features
     def get_audio_features_base(self, track_chunk):
         return self.Spotify.tracks_audio_features(track_chunk)
@@ -313,6 +317,7 @@ if __name__ == '__main__':
     parser.add_argument('--albums', help='Find best album matches.', action='store_true')
     parser.add_argument('--artists', help='Find the artist information.', action='store_true')
     parser.add_argument('--tracks', help='Find the track information.', action='store_true')
+    parser.add_argument('--featureds', help='Find featured artist information.', action='store_true')
     parser.add_argument('src', help='Source CSV')
     parser.add_argument('dest', help='Destination CSV')
     args = parser.parse_args()
@@ -332,3 +337,5 @@ if __name__ == '__main__':
         chungus.scrape_artists()
     if args.tracks:
         chungus.scrape_tracks()
+    if args.featureds:
+        chungus.scrape_featureds()
