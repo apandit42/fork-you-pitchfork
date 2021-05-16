@@ -10,7 +10,7 @@ from keys import *
 class GeniusScraper:
     def __init__(self, client_token, src_file, dest_file):
         self.client_token = client_token
-        self.Genius = lg.Genius(client_token, retires=10)
+        self.Genius = lg.Genius(client_token, retries=10)
         self.src_file = src_file
         self.df = pd.read_csv(src_file)
         self.dest_file = dest_file
@@ -41,25 +41,33 @@ class GeniusScraper:
             artist_names = artist_name.split('|')
             # Best candidate
             candidate = None
+
             # Try to grab the song on genius, first easy pass
-            for split_name in artist_names:
-                song = self.Genius.search_song(title=name, artist=split_name)
-                if song.title == name and song.artist == split_name:
-                    candidate = song
-            # If there's no match, keep looking
-            if candidate is None:
+            # we're just gonna try catch this chief
+            try:
                 for split_name in artist_names:
-                    song = self.Genius.search_song(title=name.lower(), artist=split_name.lower())
-                    if song.title == name and song.artist == split_name:
+                    song = self.Genius.search_song(title=name, artist=split_name)
+                    if song is not None and song.title == name and song.artist == split_name:
                         candidate = song
-            # Still no match? Still keep looking
-            if candidate is None:
-                for split_name in artist_names:
-                    q_name = self.replace_and_reverse(unidecode(name).lower().strip())
-                    q_artist = self.replace_and_reverse(unidecode(name).lower().strip())
-                    song = self.Genius.search_song(title=q_name, artist=q_artist)
-                    if song.title == name and song.artist == split_name:
-                        candidate = song
+                # If there's no match, keep looking
+                if candidate is None:
+                    for split_name in artist_names:
+                        song = self.Genius.search_song(title=name.lower(), artist=split_name.lower())
+                        if song is not None and song.title == name and song.artist == split_name:
+                            candidate = song
+                # Still no match? Still keep looking
+                if candidate is None:
+                    for split_name in artist_names:
+                        q_name = self.replace_and_reverse(unidecode(name).lower().strip())
+                        q_artist = self.replace_and_reverse(unidecode(split_name).lower().strip())
+                        song = self.Genius.search_song(title=q_name, artist=q_artist)
+                        if song is not None and song.title == name and song.artist == split_name:
+                            candidate = song
+            except Exception:
+                print(f'EXCEPTION EXCEPTION EXCEPTION')
+                print(f'Skipping {pitchfork_id}, {name}, {artist_name} for now...')
+                continue
+                
             # At this point, just write the candidate out, fuck it
             genius_track_file = Path(f'api/genius_tracks/{pitchfork_id}_{track_id}.pickle')
             genius_track_file.write_bytes(pickle.dumps(candidate))
