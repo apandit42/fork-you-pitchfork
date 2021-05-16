@@ -11,9 +11,69 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
     def __init__(self, client_id, client_secret, filepath, writepath):
         super().__init__(client_id, client_secret, filepath, writepath)
 
+    # Wrapper for spotify api call with filesystem check
+    def get_featureds(self, featureds_list):
+        # Initial lists, just one endpoint hit
+        all_tuples = []
+        non_cached = []
+
+        # Check the cached files
+        for pitchfork_id, track_id, artist_id in featureds_list:
+            artist_filepath = Path(f'api/artists/{artist_id}.pickle')
+            if artist_filepath.is_file():
+                artist_data = pickle.loads(artist_filepath.read_bytes())
+                all_tuples += [(pitchfork_id, track_id, artist_data)]
+            else:
+                non_cached += [(pitchfork_id, track_id, artist_id)]
+        
+        # Get the non-cached files
+        CHUNK_SIZE = 50
+        for i in range(0, len(non_cached), CHUNK_SIZE):
+            chunk = non_cached[i:i + CHUNK_SIZE]
+            chunk_pitchfork_ids, chunk_track_ids, chunk_artist_ids = zip(*chunk)
+            artist_results = self.get_artists_base(chunk_artist_ids)
+
+            # now save the new ones that we haven't pulled before
+            for i in range(len(chunk)):
+                filepath = Path(f'api/artists/{chunk_artist_ids[i]}.pickle')
+                filepath.write_bytes(pickle.dumps(artist_results[i]))
+                print(f'Got artist {artist_results[i].name} ...')
+                all_tuples += [(chunk_pitchfork_ids[i], chunk_track_ids[i], artist_results[i])]
+        
+        # artist dicts and build dicts
+        artist_dicts = []
+        for pitchfork_id, track_id, artist in all_tuples:
+            artist_dicts += [{
+                'pitchfork_id': pitchfork_id,
+                'track_id': track_id,
+                'artist_name': artist.name,
+                'popularity': artist.popularity,
+                'artist_id': artist.id,
+                'followers': artist.followers.total,
+                'genres': '|'.join([x for x in artist.genres])
+            }]
+        
+        return artist_dicts
+    
     # Scrape all the featured artist info
     def scrape_featureds(self):
-        pass
+        # Load in the tracks with artists
+        featured_df = self.df[['pitchfork_id', 'track_id', 'artist_id']]
+        raw_featured_tuples = list(featured_df.to_records(index=False))
+
+        # Each track with each artist should have its own row
+        full_featured_tuples = []
+        for pitchfork_id, track_id, artist_ids in raw_featured_tuples:
+            full_featured_tuples += [(pitchfork_id, track_id, split_artist_id) for split_artist_id in artist_ids.split('|')]
+        
+        # Now pass this info into get_featureds, expect ready to write list of dicts
+        featureds_data_dicts = self.get_featureds(full_featured_tuples)
+
+        # Save the output
+        output_pickle = Path(f'{self.writepath}.pickle')
+        output_pickle.write_bytes(pickle.dumps(featureds_data_dicts))
+        final_featureds_df = pd.DataFrame(featureds_data_dicts)
+        final_featureds_df.to_csv(self.writepath, index=False)
 
     # Spotify API call for tracks audio features
     def get_audio_features_base(self, track_chunk):
@@ -135,11 +195,6 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
         final_tracks_df = pd.DataFrame(tracks_data_dicts)
         final_tracks_df.to_csv(self.writepath, index=False)
     
-    # Scrape all the tracks
-    def scrape_tracks(self):
-        # Get right columns from df
-        tracks_df = self.df[['pitchfork_id', '']]
-
     # Spotify API call for all the artists
     def get_artists_base(self, artist_chunk):
         return self.Spotify.artists(artist_chunk)
