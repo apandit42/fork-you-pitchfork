@@ -2,6 +2,7 @@ import pandas as pd
 import pickle
 from pathlib import Path
 import argparse
+from types import SimpleNamespace
 from keys import *
 from search_spotify import SpotifyIdScraper
 
@@ -32,21 +33,18 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
             if track_filepath.is_file() and audio_features_filepath.is_file():
                 track_data = pickle.loads(track_filepath.read_bytes())
                 audio_feature_data = pickle.loads(audio_features_filepath.read_bytes())
-                if audio_feature_data is None:
-                    print(track_filepath)
-                    print(audio_features_filepath)
-                    print(audio_feature_data)
                 all_tracks_tuples += [(pitchfork_id, track_data)]
                 all_audio_features_tuples += [(pitchfork_id, audio_feature_data)]
             else:
                 non_cached += [(pitchfork_id, track_id)]
-        raise Exception
+        
         # Get the non-cached files
         CHUNK_SIZE = 50
         for i in range(0, len(non_cached), CHUNK_SIZE):
             chunk = non_cached[i:i + CHUNK_SIZE]
             chunk_pitchfork_ids, chunk_track_ids = zip(*chunk)
             track_results = self.get_tracks_base(chunk_track_ids)
+            # NOTE: sometimes, there will not be audio features, so they will need to be handled appropriately
             audio_feature_results = self.get_audio_features_base(chunk_track_ids)
 
             # now also save the newly scraped results so they will be picked up from the cache for next time
@@ -55,6 +53,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
                 track_filepath = Path(f'api/tracks/{chunk_pitchfork_ids[i]}_{chunk_track_ids[i]}.pickle')
                 audio_features_filepath = Path(f'api/audio_features/{chunk_pitchfork_ids[i]}_{chunk_track_ids[i]}.pickle')
                 track_filepath.write_bytes(pickle.dumps(track_results[i]))
+                # will write NoneType object to files sometimes
                 audio_features_filepath.write_bytes(pickle.dumps(audio_feature_results[i]))
                 print(f'Got track {track_results[i].name} ...')
                 all_tracks_tuples += [(chunk_pitchfork_ids[i], track_results[i])]
@@ -62,11 +61,31 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
 
         # Final results dicts
         track_dicts = []
+
         # Now we can build the rows of the tracks csv
         for i in range(len(all_tracks_tuples)):
             pitchfork_id, track_data = all_tracks_tuples[i]
             pitchfork_id, audio_features_data = all_audio_features_tuples[i]
-            print(f'Pitchfork_id: {pitchfork_id}\nTrack Data: {track_data}\nAudio Data: {audio_features_data}\n')
+
+            # Handle case where audio features data is missing by
+            # creating a filler object with None attributes (will write out
+            # as empty '', entries
+            if audio_features_data is None:
+                audio_features_data = SimpleNamespace(
+                    acousticness=None,
+                    danceability=None,
+                    energy=None,
+                    instrumentalness=None,
+                    liveness=None,
+                    loudness=None,
+                    mode=None,
+                    speechiness=None,
+                    tempo=None,
+                    time_signature=None,
+                    valence=None,
+                    key=None
+                )
+
             track_dicts += [{
                 'pitchfork_id': pitchfork_id,
                 'track_id': track_data.id,
@@ -103,7 +122,7 @@ class SpotifyEndpointScraper(SpotifyIdScraper):
         for pitchfork_id, track_ids in raw_tracks_tuples:
             full_tracks_tuples += [(pitchfork_id, split_id) for split_id in track_ids.split('|')]
 
-        # Now pass this list into get_artists, expect ready to write list of dicts back
+        # Now pass this list into get_tracks, expect ready to write list of dicts back
         tracks_data_dicts = self.get_tracks(full_tracks_tuples)
 
         # Save the output
