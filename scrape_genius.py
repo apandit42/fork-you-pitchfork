@@ -4,6 +4,7 @@ from pathlib import Path
 import lyricsgenius as lg
 import argparse
 from unidecode import unidecode
+from multiprocessing import Pool
 from keys import *
 
 
@@ -20,6 +21,38 @@ class GeniusScraper:
         if name.find(' & ') != -1:
             name = name.replace(' and ', ' & ')
         return name
+    
+    # Worker thread
+    def worker_thread(self, row):
+        # Generate a new genius
+        workerGenius = lg.Genius(self.client_token, retries=10)
+        # Unpack row
+        pitchfork_id, track_id, name, artist_name = row
+        # Check cache
+        track_file = Path(f'api/genius_tracks/{pitchfork_id}_{track_id}.pickle')
+        if track_file.is_file():
+            genius_data = pickle.loads(track_file.read_bytes())
+        else:
+            split_artists = artist_name.split('|')
+            genius_data = None
+            for artist in split_artists:
+                song = workerGenius.search_song(title=name, artist=artist)
+                if song is not None
+
+    # multi thread
+    def main_multi_thread(self):
+        core_df = self.df[['pitchfork_id', 'track_id', 'name', 'artist_name']]
+        raw_tracks = list(core_df.to_records(index=False))
+
+        MAX_THREAD = 64
+        with Pool(MAX_THREAD) as p:
+            genius_data_dicts = p.map(self.worker_thread, raw_tracks)
+        
+        # Write it out
+        outpickle = Path(f'{self.dest_file}.pickle')
+        outpickle.write_bytes(pickle.dumps(genius_data_dicts))
+        genius_df = pd.DataFrame(genius_data_dicts)
+        genius_df.to_csv(self.dest_file)
     
     # Get all the genius data
     def get_all_genius_data(self, raw_tracks):
@@ -46,12 +79,6 @@ class GeniusScraper:
                 song = self.Genius.search_song(title=name, artist=split_name)
                 if song.title == name and song.artist == split_name:
                     candidate = song
-            # If there's no match, keep looking
-            if candidate is None:
-                for split_name in artist_names:
-                    song = self.Genius.search_song(title=name.lower(), artist=split_name.lower())
-                    if song.title == name and song.artist == split_name:
-                        candidate = song
             # Still no match? Still keep looking
             if candidate is None:
                 for split_name in artist_names:
