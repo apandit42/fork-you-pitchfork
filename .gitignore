@@ -10,3 +10,7 @@ api/
 secrets.py
 keys.py
 .DS_Store
+
+finalized_pickles/
+
+MATCHED_GENIUS.csv
