@@ -49,6 +49,7 @@ class GeniusScraper:
                     song = workerGenius.search_song(title=q_name, artist=q_artist)
                     if song is not None and song.title == q_name and song.artist == q_artist:
                         genius_data = song
+            track_file.write_bytes(pickle.dumps(genius_data))
         # Now we have a genius data var populated, just return the written dict
         if genius_data is None:
             return None
@@ -73,9 +74,15 @@ class GeniusScraper:
         core_df = self.df[['pitchfork_id', 'track_id', 'name', 'artist_name']]
         raw_tracks = list(core_df.to_records(index=False))
 
-        MAX_THREAD = 64
+        # Multithread
+        MAX_THREAD = 96
         with Pool(MAX_THREAD) as p:
             genius_data_dicts = p.map(self.worker_thread, raw_tracks)
+
+        # Filter out the nonetypes
+        print(f'TOTAL ENTRIES START: {len(genius_data_dicts)}')
+        genius_data_dicts = [x for x in genius_data_dicts if x]
+        print(f'FINAL LYRICS FOUND: {len(genius_data_dicts)}')
         
         # Write it out
         outpickle = Path(f'{self.dest_file}.pickle')
@@ -182,9 +189,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('Pull from Genius')
     # By default, use Ayush's Genius Token
     # Designed to work with the MATCHED_TRACK data set
+    parser.add_argument('--multithread', action='store_true', help='Multi-threaded version.')
     parser.add_argument('src', help='Source CSV')
     parser.add_argument('dest', help='Destination CSV')
     args = parser.parse_args()
     geniusGoon = GeniusScraper(AYUSH_GENIUS_TOKEN, args.src, args.dest)
-    geniusGoon.scrape_genius()
+    if args.multithread:
+        geniusGoon.main_multi_thread()
+    else:
+        geniusGoon.scrape_genius()
     

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/ayusherish/fork-you-pitchfork/scrape_genius.py", line 192, in <module>
+    geniusGoon.main_multi_thread()
+  File "/home/ayusherish/fork-you-pitchfork/scrape_genius.py", line 84, in main_multi_thread
+    genius_df = pd.DataFrame(genius_data_dicts)
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 570, in __init__
+    arrays, columns = to_arrays(data, columns, dtype=dtype)
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/internals/construction.py", line 530, in to_arrays
+    return _list_of_dict_to_arrays(
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/internals/construction.py", line 643, in _list_of_dict_to_arrays
+    columns = lib.fast_unique_multiple_list_gen(gen, sort=sort)
+  File "pandas/_libs/lib.pyx", line 353, in pandas._libs.lib.fast_unique_multiple_list_gen
+  File "/home/ayusherish/venv/lib/python3.9/site-packages/pandas/core/internals/construction.py", line 641, in <genexpr>
+    gen = (list(x.keys()) for x in data)
+AttributeError: 'NoneType' object has no attribute 'keys'
