@@ -1768,7 +1768,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 1945,Morrissey,65,3iTsJGG39nMg9YiolUgLMQ,809672,britpop|madchester|new wave|permanent wave|pop rock|rock
 1947,Hayden Thorpe,38,2oTq85rZFxkflPCbDUGs6d,8051,
 1948,Nadia Tehran,20,09ESvFEyyX1aDdRg5kmsvu,3899,
-1949,Flying Lotus,69,29XOeO6KIWxGthejQqn793,620136,afrofuturism|alternative hip hop|electronica|escape room|experimental hip hop|glitch|glitch hop|hip hop|intelligent dance music|jazztronica|psychedelic hip hop|wonky
 1950,YG,82,0A0FS04o6zMoto8OKPsDwY,2589702,cali rap|gangster rap|hip hop|pop rap|rap|southern hip hop|trap
 1951,Mavis Staples,58,0cTSCsVx04SSht9V6cpKN0,73769,funk|roots rock|soul|southern soul|spirituals
 1952,Amyl and The Sniffers,47,3NqV2DJoAWsjl787bWaHW7,66554,australian garage punk|indie punk
@@ -4179,7 +4178,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 4651,The Feelies,43,4UETUdF77BfyJ7fEFVztr3,49627,alternative rock|art rock|dance-punk|double drumming|gbvfi|indie rock|jangle pop|new jersey indie|new wave|post-punk|power pop
 4652,Jonwayne,49,3i7IUsb5VsiJAKqX2Md9Fc,91842,alternative hip hop|escape room|wonky
 4653,Six by Seven,17,4TXdHyuAOl3rAOFmZ6MeKz,2843,britpop|nottingham indie
-4654,Weezer,79,3jOstUTkEu2JkjvRdBA5Gu,2313305,alternative rock|modern power pop|modern rock|permanent wave|pop rock|rock
 4655,Kingdom,35,1ofhNTFMyFVSs62cJWG0oj,9093,deconstructed club|escape room
 4656,King Gizzard & The Lizard Wizard,68,6XYvaoDGE0VmRt83Jss9Sn,647390,australian indie|australian psych|double drumming|neo-psychedelic
 4657,Grails,38,3VdjlG06JkVAnZ19TR7ZHZ,32881,dark jazz|instrumental rock|post-rock|space rock
@@ -5022,7 +5020,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 5653,Anna Wise,59,0N41KJ4H6bkPAm2tx7VS8C,55006,alternative r&b|escape room
 5654,Alarm Will Sound,30,3FivPgIIWpeGTnTx5PrpCX,6207,modern performance
 5654,Alan Pierson,25,45A40T0QmXr5lZj1Axa0Np,149,
-5656,Prince,77,5a2EaR3hamoenG9rDuVn8j,5265830,funk|funk rock|minneapolis sound|motown|synth funk
 5658,Prince,77,5a2EaR3hamoenG9rDuVn8j,5265830,funk|funk rock|minneapolis sound|motown|synth funk
 5658,The New Power Generation,51,1xtGjxE9c1YmEmFPCH6Izp,1758,
 5659,Prince,77,5a2EaR3hamoenG9rDuVn8j,5265830,funk|funk rock|minneapolis sound|motown|synth funk
@@ -5745,7 +5742,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 6536,Suzanne Kraft,47,1FTn5osUbCr8n7WgYmbK5m,18425,fourth world
 6538,Ratatat,72,57dN52uHvrHOxijzpIgu3E,541613,alternative dance|indietronica|new rave
 6539,Self Defense Family,27,2I2cZ5S4iWHVr1aOh0iuyg,10439,indie punk
-6540,Container,22,0uCqiRh7CzBXxmD1Cddf77,5940,mandible|new england experimental
 6541,Iron & Wine,70,4M5nCE77Qaxayuhp3fVn4V,955868,acoustic pop|chamber pop|indie folk|indie pop|neo mellow|stomp and holler
 6541,Ben Bridwell,48,6Vfn70eqp3AgtiZZtQcv4W,2547,
 6542,Flying Saucer Attack,26,336fB3AJgK8AvHX5bD8d9A,12487,bristol indie|dream pop|drone|freak folk|nu gaze|shoegaze
@@ -6784,7 +6780,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 7810,Datashock,2,48jd7yvWE2qePfLvrFiuff,484,experimental psych|neo-kraut
 7811,Vangelis Katsoulis,13,2Fw1Rh841fgdcKEmA3UdtN,850,greek jazz
 7817,TOBACCO,48,3ikKyCOrsMeANi0d5u8BCR,66338,chillwave|freak folk
-7818,American Football,54,5FwydyGVcsQllnM4xM6jw4,204490,alternative emo|emo|midwest emo
 7820,Emma Ruth Rundle,49,34gLicNdz493863yZTanvC,75092,gaian doom|modern dream pop|post-doom metal|post-rock
 7822,Cold Cave,45,1ssulsHf3JrWakLxa8yFad,60987,alternative dance|dark post-punk|grave wave|metropopolis|nu gaze
 7823,Coldplay,91,4gzpq5DPGxSnKTe4SA8HAU,30048719,permanent wave|pop
@@ -8126,7 +8121,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 9668,Amy Winehouse,80,6Q192DXotxtaysaqNPy5yR,7125492,british soul|neo soul
 9669,Björk,66,7w29UYBi0qsHi5RTcv3lmA,1352592,alternative dance|art pop|dance pop|electronica|electropop|experimental pop|experimental vocal|icelandic experimental|icelandic pop|icelandic singer-songwriter|metropopolis|permanent wave|trip hop
 9670,Cold Pumas,7,3h03Zll7KezpPPFPcKFXZY,1480,popgaze
-9671,Container,22,0uCqiRh7CzBXxmD1Cddf77,5940,mandible|new england experimental
 9673,Peaking Lights,38,54ECAJjvSyZGTWUgyt5tqc,26347,experimental pop|freak folk
 9674,Big Boi,63,2ht3wxeT69CzyKFChNnNAB,339449,alternative hip hop|atl hip hop|dirty south rap|hip hop|southern hip hop
 9676,Girls Aloud,60,12EtLdLfJ41vUOoVzPZIUy,394754,bubblegum dance|dance pop|electropop|europop|girl group|post-teen pop
@@ -9953,7 +9947,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 12024,LCD Soundsystem,66,066X20Nz7iquqkkCW6Jxy6,843540,alternative dance|alternative rock|dance rock|dance-punk|electronic rock|electronica|indie pop|indie rock|indietronica|modern rock|new rave|rock
 12025,Tyvek,15,7azK2z2ta4tYMqDmrSOBBe,4643,detroit rock|garage pop
 12026,Games,23,1ph5qRQagrduQ3jAkjDlHN,5211,chillwave|indie dream pop|vaporwave
-12027,MellowHype,43,5CCrgHVEWtg8YTEn1UaYug,161804,underground hip hop
 12028,Modest Mouse,70,1yAwtBaoHLEDWAnWR87hBT,1167910,alternative rock|double drumming|indie pop|indie rock|modern rock|rock|washington indie
 12029,Seeland,3,4psDwfD7MEB0bOZkVhUjTy,310,
 12030,Electric Sunset,3,7d9vuisScEXnFpUwl1usXY,303,indie dream pop
@@ -10030,7 +10023,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 12123,Nellie McKay,33,1GFVkK9DUecapOZv2HzpiN,14546,anti-folk|jazz pop|lilith
 12124,Benoît Pioulard,39,77SQlBEZyyJ7neYnlp0cDl,16972,ambient|compositional ambient|drift|drone|nu age|shoegaze|warm drone
 12127,Shrag,5,0YHGksl6HGKFQuAyDRf6U3,693,indie fuzzpop
-12131,Antony and the Johnsons,53,4fxp616ALtFWnXfwxnjLzW,263006,art pop|baroque pop|melancholia
 12132,Sisters,23,4N7fhIONGBhYS4OSyrEUCq,1956,
 12133,Zach Hill,36,3GjsFPyuCazKeKgVzMg6Om,30940,math rock
 12134,Gonjasufi,38,6pdYN3jOHWteVALy9sKGEf,47844,psychedelic soul|wonky
@@ -10629,7 +10621,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 12890,Kasper Bjørke,44,4xcn3zUUGf03kOIJueXHVp,28151,danish electronic|danish electropop
 12892,Clem Snide,38,6BV1QOFqWihVnBllS5naPh,19497,alternative country|indie folk|stomp and holler
 12894,Via Audio,8,4jJwthCJP4Siy4LfybLlIl,1147,
-12895,Memoryhouse,30,0T1n7Qbe4vwYIu42mB6qXe,25427,chillwave|indie dream pop|nu gaze|ontario indie
 12896,Wolf People,34,6ZkaJWNgRHvDBiuZsyTaZK,18462,neo-psychedelic|space rock
 12898,These New Puritans,31,7w0e6inAfRWIEb9tWVgB7a,29286,dance-punk|essex indie|grave wave|new rave
 12899,Mumford & Sons,78,3gd8FJtBJtkRxdfbTu19U2,6047174,modern folk rock|modern rock|pop rock|stomp and holler|uk americana
@@ -10678,7 +10669,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 12952,Anna Ternheim,53,6xSTQT32ZxLQPe37QIC308,118355,classic swedish pop|swedish alternative rock|swedish pop|swedish singer-songwriter
 12954,Malachai,26,0A8nOF4xDDiv7wxWiiMzDB,2679,
 12956,Nmperign,2,6HVD7aptCQY6ub9OEy8fWy,126,electroacoustic improvisation|new england experimental
-12957,Oneohtrix Point Never,55,2wPDbhaGXCqROrVmwDdCrK,162800,ambient|art pop|chillwave|dream pop|drone|electronica|escape room|experimental pop|fluxwork|fourth world|freak folk|hauntology|intelligent dance music|microhouse|new rave|outsider house|vaporwave
 12958,The Brunettes,20,5PR2gJNMKb3nma8QuTRjie,4065,auckland indie|nz indie
 12959,The House of Love,42,4tfyTbsNNN5xfxKDwG4VfP,38465,britpop|c86|dream pop|garage psych|new wave|shoegaze
 12961,Saviours,16,3kDriIhqNulTiUuGfLR3Wd,6108,sludge metal|stoner metal
@@ -11013,7 +11003,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 13420,Helado Negro,54,69qhRLDvsWJOhWGXXQ0lQQ,79682,art pop|deep latin alternative
 13421,Arve Henriksen,44,32pN1An13076I4PTMzn2g7,15856,compositional ambient|contemporary jazz|ecm-style jazz|fourth world|indie jazz|jazz trumpet|norwegian contemporary jazz|norwegian jazz|swedish jazz
 13423,The Temper Trap,65,4W48hZAnAHVOC2c8WH8pcq,613315,alternative dance|australian indie|indie rock|modern rock
-13425,Slaughterhouse,51,5rVbcJv0JRfhWLA3mgM73r,296814,southern hip hop
 13426,Ducktails,41,5FQbU5Lrb4pFcW45ZgZzMx,60095,baroque pop|chillwave|experimental pop|freak folk|indie garage rock|new jersey indie|nu gaze
 13427,Arctic Monkeys,88,7Ln80lUS6He07XvHI8qqHH,11684407,garage rock|modern rock|permanent wave|rock|sheffield indie
 13428,The Phenomenal Handclap Band,43,4S8UOAApPhwz9WcVOj13VO,12487,nu disco
@@ -11085,7 +11074,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 13521,Wolf Eyes,22,6UahQwC9EZGsFSuGjHJNe1,13056,power electronics
 13524,Broken Records,18,4U2j9OHOosv3AagxMB9nR0,4268,scottish rock
 13525,YOB,36,1hiIe6hmDchjc246cpoAOM,69103,doom metal|drone|drone metal|post-doom metal|post-metal|psychedelic doom|sludge metal|stoner metal
-13527,Ty Segall,57,58XGUNsRNu3cVOIOYk5chx,266421,alternative rock|australian garage punk|bay area indie|blues rock|freak folk|garage pop|garage psych|garage rock|indie garage rock|indie rock|modern rock|neo-psychedelic|noise pop|nu gaze|oc indie|punk blues
 13529,Lord Cut-Glass,3,0Fu8tWqlikIRkHYvuF9KkO,243,scottish rock
 13530,Steve Bug,37,4SoC2HfA0nGk3xCJ3hRG3J,24785,german house|german techno|microhouse|minimal tech house|minimal techno|tech house
 13531,The Skygreen Leopards,14,28kkIX5npKFkG9becBQMyb,1766,freak folk|new weird america
@@ -12024,7 +12012,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 14815,Etran Finatawa,35,4loyFcpdGnVsJRk2pgv6qX,10650,afropop|desert blues|griot|ngoni|tuareg guitar|world
 14816,Al Green,71,3dkbV4qihUeMsqN4vBGg93,1463222,classic soul|funk|memphis soul|quiet storm|soul|soul blues|southern soul
 14817,The Futureheads,48,3TBfn8PtXr42OrTPaoC3E8,79854,british indie rock|dance-punk|indie rock|modern rock|new rave|north east england indie
-14818,Nôze,43,6rbW4PmepEAeeow5x9eW3u,23025,french techno
 14822,Dominique Leone,2,5k8mFlTICOtwdnrOgKdC6P,166,
 14823,Mount Eerie,47,4Sw0SFu1fFdYXdAEVdrqnO,98544,alternative rock|anti-folk|art pop|dream pop|freak folk|indie rock|lo-fi|melancholia|washington indie
 14824,The Sword,53,0q32a3GRCjDxS4EIrC7YVY,170237,psychedelic doom|sludge metal|stoner metal|stoner rock
@@ -12199,7 +12186,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 15058,Chatham County Line,38,3M2LPcqyD4PxbOFvtF05R7,18139,banjo|bluegrass|mandolin|new americana|north carolina roots|progressive bluegrass
 15059,The Big Sleep,9,4Qvx32a9bDDvtA5byjUnqI,1593,stomp pop
 15060,Ministry,56,1DXylZlWbVvlckNqwvjTEt,350016,alternative metal|double drumming|industrial|industrial metal|industrial rock|nu metal|rap rock
-15062,Crystal Castles,67,7K3zpFXBvPcvzhj7zlGJdO,900604,alternative dance|bitpop|dance-punk|digital hardcore|electronica|indietronica|neo-synthpop|new rave|nintendocore|nu gaze
 15063,Fuck Buttons,35,6tCENAD2FBfIMyygJMeOJV,52407,bristol electronic
 15064,The Exit Strategy,0,6wjCH9PHyDdWt2i4w94xyX,2,
 15065,Richard Youngs,17,1rMkroCNvGAk4kO6I1j5A3,2900,experimental folk|experimental psych|free folk|scottish indie folk
@@ -12664,7 +12650,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 15732,Spectratone International,4,6iZVjpHunBh2sY18zbx6cx,0,
 15735,The Magic Numbers,46,0P2q6xyNc2hVFkG3ThjYcJ,75242,
 15736,Okkervil River,46,5E7zSu46SqTmgKqsc0tFkY,104062,austindie|canadian indie|freak folk|indie folk|indie pop|indie rock|melancholia|modern folk rock|stomp and holler
-15738,High Places,18,3I3Tc8RnSiNgJFvL0EsuPK,6974,freak folk
 15739,White Noise,24,4t0c0aHoabuLfz1b4nT1If,4185,experimental|zolo
 15740,Hans Zimmer,80,0YC192cP3KPCRWx8zr8MfZ,2530110,german soundtrack|soundtrack
 15741,The Lovetones,16,2HWopRhahfEImyLGkdgFuo,3624,psych gaze
@@ -13853,7 +13838,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 17436,Someone Still Loves You Boris Yeltsin,40,28V657x2IVJnSW3Srw6Ubd,34095,bubblegrunge|indie pop|indie rock|springfield mo indie
 17437,Greg Davis,9,4paVd8Xh0qCuX09r68eMMj,770,new england experimental|sound art
 17437,Sebastien Roux,0,6Xjfy2OFGS01aFYbJUsqOe,10,
-17438,J Dilla,64,0IVcLMMbm05VIjnzPkGCyp,468885,alternative hip hop|detroit hip hop|hip hop
 17439,Belong,26,3c5PAcbkeFrbWUp42FaBkW,10218,ambient|drone
 17440,She Wants Revenge,58,2zRt0sfxNnqI8gLR7d8gWt,223965,alternative dance|dance-punk|dark wave
 17443,Clogs,34,12BDNYhvDp2RIeF9pabPzv,9360,bow pop|post-rock
@@ -13914,7 +13898,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 17520,Sunroof!,2,2Jgfv3EacnRa1PvOPF2Val,603,experimental psych|free folk
 17521,Holy Fuck,52,6Q0gMZJNIebNFFaJeonc11,57288,alternative dance|chamber psych|dance-punk|electronic rock|electronica|new rave
 17522,Lil Wayne,91,55Aa2cqylxrFIXC767Z865,10392395,hip hop|new orleans rap|pop rap|rap|trap
-17524,Nine Inch Nails,71,0X380XXQSNBYuleKzav5UO,1786891,alternative metal|alternative rock|cyberpunk|electronic rock|industrial|industrial metal|industrial rock|nu metal|rock
 17526,Coptic Light,0,6bF5JKd9h52msGzL5wv35Y,135,instrumental math rock
 17527,Matt Elliott,38,0559tR6WyukLWH68JIGBuC,26846,bristol indie
 17528,George,0,7IIfOSe0WVmFwiYj98uiz5,23,
@@ -13927,7 +13910,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 17545,Circle,16,0VFRNaQs3xWnI8zSB66MDR,4412,finnish progressive rock|finnish psychedelic rock
 17546,Bound Stems,6,2Be1mnmwEOPnOwpCAT6BRe,580,stomp pop
 17547,Richard Youngs,17,1rMkroCNvGAk4kO6I1j5A3,2900,experimental folk|experimental psych|free folk|scottish indie folk
-17548,T. Rex,67,3dBVyJ7JuOMt4GE9607Qin,693851,album rock|art rock|classic rock|folk rock|glam rock|protopunk|psychedelic rock|rock
 17551,Espers,21,5oskjjKT8YsWJV0o8NEV9R,6448,baroque pop|freak folk|new weird america|philly indie
 17556,The Notorious B.I.G.,83,5me0Irg2ANcsgc93uaYrpb,6317289,east coast hip hop|gangster rap|hardcore hip hop|hip hop|rap
 17557,Kind of Like Spitting,27,1oCIe5XjeoEqglbAj10DPK,6981,emo|emo punk
@@ -14139,7 +14121,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 17880,The Greenhornes,39,7sPZakwiHQUWkG1teFE8zv,26733,blues rock|garage rock|garage rock revival|modern blues rock|punk blues
 17882,Gogol Bordello,51,2SVw939fwuqSobLjF8u78b,272867,gypsy punk
 17884,Serena-Maneesh,19,2zBENk8LtANz3cNlE9suSb,2790,dream pop|norwegian alternative rock|norwegian indie|nu gaze|shoegaze
-17885,M83,74,63MQldklfxkjYDoUE4Tppz,1898420,french shoegaze|french synthpop|indietronica|metropopolis|neo-synthpop
 17886,Koufax,12,4bYZze0oZxoHmdHEsbTMFw,1212,
 17888,Flamin' Groovies,46,3yesh1QeNXucaDFw8ZPKxd,42238,classic garage rock|country rock|folk rock|freakbeat|garage rock|power pop|protopunk|psychedelic rock|pub rock|punk|punk blues|roots rock
 17890,José González,70,6xrCU6zdcSTsG2hLrojpmI,910906,gothenburg indie|indie folk|neo mellow|stomp and holler|swedish indie folk|swedish indie pop|swedish singer-songwriter
@@ -15393,7 +15374,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 19782,The Flaming Lips,63,16eRpMNXSQ15wuJoeqguaB,628305,alternative rock|art rock|indie pop|indie rock|modern rock|noise pop|okc indie|rock
 19783,The Bevis Frond,21,2UWJVpm81yeOuzFWmaYEAF,3731,gbvfi|indie psychedelic rock
 19785,Rufus Wainwright,59,2PfBzriIMRsCXPDtSy9vg8,257636,canadian pop|chamber pop|melancholia|piano rock|singer-songwriter
-19787,Sun Kil Moon,51,4G0XDEk7RbA4BBCTs917U9,179273,alternative rock|dream pop|freak folk|indie rock|modern folk rock|slowcore
 19788,The Beatles,89,3WrFJ7ztbogyGnTHbHJFl2,19434891,beatlesque|british invasion|classic rock|merseybeat|psychedelic rock|rock
 19789,Starsailor,52,0G8zjE6SsFTlbglCkU8pm3,165658,britpop|lancashire indie|piano rock
 19790,The Frames,41,6lyku6lhbB3tLc3Dghs5CM,68504,irish indie rock|irish rock|melancholia
@@ -15421,7 +15401,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 19816,Caustic Resin,15,3cevAuO37kcxi5piEwFV6M,1552,idaho indie
 19817,Lovely Midget,0,71foOa9QRJIizxP7yj59HC,26,
 19818,The Handsome Family,50,72PnPUc1qv9UjRPaGVZ1jq,89533,albuquerque indie|alternative country|gothic americana
-19819,The Unicorns,43,7L5HH5QtkDe7u2hJ1FUKFo,65111,alternative rock|anti-folk|canadian indie|dance-punk|freak folk|indie pop|indie rock|lo-fi
 19820,Soul Position,27,1979TL9BYIaUZxqbqUUhFa,14074,abstract hip hop|alternative hip hop|underground rap
 19821,Ellen Allien,45,5lsC3H1vh9YSRQckyGv0Up,132204,electra|electronica|german techno|microhouse|minimal techno|tech house
 19823,Elvis Costello,61,2BGRfQgtzikz1pzAD0kaEn,401446,art rock|folk|folk rock|mellow gold|new wave pop|permanent wave|pop rock|power pop|pub rock|rock|roots rock|singer-songwriter
@@ -15490,7 +15469,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 19935,Polmo Polpo,9,1U6FsNuRWd37LpzvM1lH1g,1321,canadian experimental
 19936,Gillian Welch,59,2H5elA2mJKrHmqkN9GSfkz,173679,alternative country|canadian singer-songwriter|country rock|folk|folk rock|indie folk|melancholia|nashville singer-songwriter|new americana|progressive bluegrass|roots rock|singer-songwriter|stomp and holler
 19937,JAY-Z,88,3nFkdlSjzX9mRTtwJOzDYB,6199038,east coast hip hop|hip hop|pop rap|rap
-19938,Death Cab for Cutie,70,0YrtvWJMgSdVrk3SfNjTbx,1280765,indie pop|indie rock|modern rock|pop rock|washington indie
 19939,Blue Cheer,38,4PI5IHRvANLL76O5gRmGKL,48183,acid rock|blues rock|classic garage rock|hard rock|protopunk|psychedelic blues-rock|psychedelic rock
 19941,Wovenhand,39,0dpglhdTlof5BS5LX7uJmg,42178,gothic americana|neofolk
 19942,Minor Threat,53,07PiZYrhllpSXtELkUxlrf,228928,dc hardcore|hardcore punk|post-hardcore|punk|ska punk|skate punk|straight edge
@@ -15762,7 +15740,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20366,Hawksley Workman,34,6TXT0xgAes45U8vyHeCIZJ,17460,canadian indie|canadian singer-songwriter
 20368,Nobukazu Takemura,29,1iXLUp5POcP8TLvg3p2ze9,7324,glitch|j-ambient|japanese idm
 20369,Akrobatik,29,2emuC245M2qQ9MPJgivLbm,6532,conscious hip hop
-20371,Common,69,2GHclqNVjqGuiE5mA7BEoc,720636,alternative hip hop|chicago rap|conscious hip hop|gangster rap|hardcore hip hop|hip hop|neo soul|political hip hop|rap
 20372,El Guapo,6,7myWMEx6ISU6u956wYoACz,888,
 20374,The Apes,2,1S3dtbeAxCNf7QewnmN0xF,207,
 20377,The Byrds,63,1PCZpxHJz7WAMF8EEq8bfc,707167,art rock|beatlesque|blues rock|brill building pop|bubblegum pop|classic rock|cosmic american|country rock|folk|folk rock|mellow gold|psychedelic rock|rock|roots rock|soft rock
@@ -15787,8 +15764,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20408,D+,7,4wkSa89SlCH6anwhBtLYDq,927,washington indie
 20409,Pest,15,5u0EuQxXWudqRuXjKuUwG5,925,
 20410,John Fahey,49,4js8BDiQwnHLlDmT1shPH7,56347,american primitive|drone folk|experimental|fingerstyle|folk|folk rock|freak folk|traditional blues
-20411,Four Tet,66,7Eu1txygG6nJttLHbZdQOh,528153,alternative dance|electronica|folktronica|intelligent dance music|new rave
-20413,of Montreal,58,5xeBMeW0YzWIXSVzAxhM8O,259327,alternative dance|alternative rock|anti-folk|art pop|baroque pop|dance-punk|elephant 6|freak folk|indie pop|indie rock|new rave
 20414,Tomahawk,47,6yyZgcrQ10gThrJxzqogiP,97708,alternative metal|alternative rock
 20415,Velvet Crush,20,3d1zFz2gPJbDaQDTsyNmbZ,6845,jangle pop|power pop|underground power pop
 20416,Grand Mal,3,5sYHluers2ubucI94T3Yvr,123,
@@ -15811,7 +15786,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20445,Lenola,2,3YgnuZ47xHb3Oe61EumtvR,179,
 20446,The Black Keys,78,7mnBLXK823vNxN3UWB7Gfz,3468098,alternative rock|blues rock|garage rock|modern alternative rock|modern blues rock|modern rock|punk blues|rock
 20448,Ben Harper,67,45lorWzrKLxfKlWpV7r9CN,810328,neo mellow
-20450,Tim Hecker,47,1qiwaJwjKod5WhcYZ76O1B,101331,ambient|art pop|canadian experimental|compositional ambient|dream pop|drift|drone|electronica|experimental|fourth world|freak folk|intelligent dance music|microhouse|outsider house|warm drone
 20451,"Bitter, Bitter Weeks",0,2PTcaAJCWsZ0vfH2JmobWR,39,
 20452,Barbara Morgenstern,20,40SREtf8p8mcTtMGCKRTv3,4829,german electronica|german indie|indie electronica
 20453,Placebo,70,6RZUqkomCmb8zCRqc9eznB,1428445,alternative rock|britpop|modern rock|permanent wave|rock
@@ -15849,7 +15823,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20504,The White Stripes,76,4F84IBURUo98rz4r61KF70,2432883,alternative rock|blues rock|detroit rock|garage rock|modern blues rock|modern rock|permanent wave|punk blues|rock
 20505,Scene Creamers,8,22FCiRuA7Y06hwVSHQBOsA,637,dc indie
 20508,Spring Heel Jack,6,7kKjgMa8afudFmPOu2KHEe,1294,
-20509,Animal Collective,58,4kwxTgCKMipBKhSnEstNKj,432292,alternative dance|alternative rock|art pop|art rock|baltimore indie|chillwave|dream pop|electronica|experimental pop|freak folk|indie pop|indie rock|modern rock|new rave|noise pop
 20510,True Love Always,5,2k5jChy9VeXMipTltIZ2zP,377,
 20511,No-Neck Blues Band,7,0ogJ9F72dfIO0xXdHLSf58,2529,experimental psych|free folk|new weird america
 20512,The Kills,57,5BYuBzqmTXwUDw2rYkwExr,568941,alternative dance|alternative rock|dance-punk|garage rock|garage rock revival|indie rock|modern blues rock|modern rock|new rave|rock
@@ -15904,7 +15877,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20587,Asian Dub Foundation,41,2EeUsNnv2BcVIGhBZ5SV8z,75455,big beat|dub|world fusion
 20589,Röyksopp,64,5nPOO9iTcrs9k6yFffPxjH,707291,alternative dance|big beat|downtempo|electronica|electropop|trip hop
 20590,Stick Men With Ray Guns,11,3avvAABloX4jc2chJigqy1,1436,noise punk|texas punk
-20591,Stick Men With Ray Guns,11,3avvAABloX4jc2chJigqy1,1436,noise punk|texas punk
 20592,50 Cent,86,3q7HBObVc0L8jNeTe5Gofh,7107234,east coast hip hop|gangster rap|hip hop|pop rap|queens hip hop|rap
 20595,Cynthia Dall,5,0ga5J8Qi6aqk4DWAwJWcOf,335,
 20597,Jon Langford,15,0utGdg6jsUnLXl9CAxJcjk,1456,alternative country
@@ -15949,21 +15921,18 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 20649,The Thermals,42,4qAJ54O4V0W8SQcSz0bl1C,45708,alternative rock|dance-punk|indie punk|indie rock|lo-fi
 20652,Drive Like Jehu,30,7FbdCzKUwoZs1v9bCl43Ev,35467,emo|emocore|math rock|noise rock|post-hardcore|post-punk
 20653,Dj Spinna,35,44E0JWHttieVoD6vUHWoa2,15357,broken beat|soulful house
-20654,Nick Cave & The Bad Seeds,69,4UXJsSlnKd7ltsrHebV79Q,1034633,art rock|permanent wave|rock
 20656,Supersilent,14,63ZdRfiO5CnI0qerf0LYjW,5244,dark jazz|fourth world|free improvisation|norwegian experimental
 20657,Bosco and Jorge,0,6HGFjTmbQYfJYl95LetQl0,24,
 20658,ROVO,17,2qZ6ysNx87m5VqGl58osSf,4432,experimental indie rock
 20659,Minus the Bear,52,0YQBN02bmZvwGNrrWsg2sT,178824,dance-punk|dreamo|emo|indie rock|progressive post-hardcore|screamo
 20660,Giddy Motors,4,6VIi3UpOGMalQTw4M2bXXk,340,math rock|noise punk
 20661,Loscil,47,3GM5cpCBadq2PMHjFoEvhK,50505,ambient|compositional ambient|drift|drone|dub techno|electronica|fourth world|intelligent dance music|microhouse|minimal techno|neo-classical
-20662,Drexciya,38,3KcV1kKG7Y0Gq7xPAGVjkZ,34393,afrofuturism|detroit techno|drill and bass|dub techno|electro|float house|intelligent dance music|microhouse|minimal techno|outsider house|techno
 20663,Jessica Bailiff,12,4DjufFYghjnOyYcM7EeyQB,2120,slowcore
 20664,12 Rods,14,5I2lBxqxB7Z8UgVTCUYv99,933,
 20665,Boas,0,1BgV3H4SOFHWVPXLHujJEm,34,
 20667,Sonny & Linda Sharrock,5,6mbbvWgeJYOhdwoFz3syfl,252,
 20668,U2,83,51Blml2LZPmy7TTiAg47vQ,8252378,irish rock|permanent wave|rock
 20669,Heroine Sheiks,8,6ZpWwwo95bC0tTOAt7AFAw,2227,noise punk
-20670,The Postal Service,59,5yV1qdnmxyIYiSFB02wpDj,466248,indie pop|indie rock|indietronica|modern rock|seattle indie
 20671,Gang Of Four,54,3AmWjMXXtBJOmNGpUFSOAl,155379,alternative rock|art punk|art rock|dance rock|dance-punk|experimental|funk rock|new wave|post-hardcore|post-punk|punk|uk post-punk
 20672,Shearwater,39,0CoiIc6ZLBvF9Cjmb1Cj49,34888,austindie|chamber pop|freak folk|melancholia|slowcore|stomp and holler
 20673,Ted Leo and the Pharmacists,37,5hbH3dvtk49g07qpc1QwPe,28061,alternative rock|indie rock
@@ -16269,7 +16238,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21146,Craig Armstrong,64,526q7RxT5KA1VGeQ5GMSHO,62868,british soundtrack|compositional ambient|scorecore|soundtrack
 21147,Liars,43,2z78AlkdwE2Ghj9EB50M6z,67026,dance-punk|experimental rock|freak folk|garage psych|indie rock|noise rock|nu gaze
 21149,All-Time Quarterback,13,6ET8MURTVBf6SYHnBYmtoG,3085,lo-fi emo
-21150,Interpol,69,3WaJSfKnzc65VDgmj2zU8B,1262222,alternative dance|alternative rock|dance-punk|indie rock|modern rock|new rave|rock
 21151,Mason Jennings,46,6CQrZZn0g2ZNfIcXbi4pdo,56306,indie folk|stomp and holler
 21153,The Birdwatcher,0,2qQ8j8IeNWr43ZxyuAKRto,29,
 21155,New Flesh,5,3fnhtnDrKfzeVOHEVZ4ulF,794,noise rock
@@ -16285,10 +16253,8 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21168,Monster Movie,16,2dfQY7CANDxfh2L21wenxo,3377,dream pop|nu gaze|shoegaze
 21169,Skeleton Key,8,5KEmcTMN7sZZl1VS2nARVU,1237,avant-rock
 21171,Tuatara,20,0T55s7rECfLYpsNqEUfgN9,3769,contemporary jazz
-21172,Andrew W.K.,60,4YJR4xviDKHoelt9WKHlBa,121087,
 21173,They Might Be Giants (For Kids),55,18ZrIxk5cW5C0MEeTeQx7O,2843,children's music|preschool children's music
 21174,Nad Navillus,0,4LuL9EbtcuigtMnGuRM4t3,53,
-21175,Atmosphere,64,1GAS0rb4L8VTPvizAx2O9J,579876,alternative hip hop|conscious hip hop|minnesota hip hop|pop rap
 21176,Pretty Girls Make Graves,31,3okeQxv9lGt59TGlLikfzN,18590,dance-punk
 21178,Yeah Yeah Yeahs,69,3TNt4aUIxgfy9aoaft5Jj2,1012160,alternative dance|alternative rock|dance-punk|garage rock|indie pop|indie rock|modern rock|new rave|rock
 21179,consonant,2,07xPqvLLSdQTw0Go6sJdk8,128,
@@ -16321,7 +16287,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21219,David Bowie,83,0oSGxfWSnnOXhD2fKuz2Gy,6841555,art rock|classic rock|glam rock|permanent wave|rock
 21220,Mull Historical Society,19,14mzDuKZNeTG2l9z0NJ156,3714,scottish indie
 21222,Old Time Relijun,16,39vNtLRbyJVLVeSsEipZ7h,3977,noise punk|olympia wa indie
-21223,The Other People Place,35,3GLOOlJDdTCd4NRrNb5Kg3,16310,detroit techno|dub techno|electro|float house|intelligent dance music|microhouse|minimal techno|outsider house|techno
 21224,Silkworm,23,3SpA64SUzDeu1Q4MztoGw3,7553,alternative pop|alternative rock|gbvfi|lo-fi|post-hardcore
 21225,The Herbaliser,48,1O7aMVbDeSXY2LiVBhb13w,98617,big beat|downtempo|electronica|ninja|nu jazz|trip hop|turntablism
 21226,Selby Tigers,5,2XRo940HtGovpfbnA0kcx1,478,
@@ -16412,7 +16377,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21345,Bratmobile,48,3GTaO7e3uPaG0SJR7Hxy8L,74930,indie punk|olympia wa indie|queercore|riot grrrl
 21346,Sage Francis,43,2E78kTKamtXgdRkK1jrc0f,85626,abstract hip hop|alternative hip hop|conscious hip hop|rhode island rap|underground rap
 21347,Trans Am,30,1YFIyRFTa7povIpq08DcCA,17099,american post-rock|post-hardcore|post-rock
-21348,The Mountain Goats,62,3hyGGjxu73JuzBa757H6R5,268696,anti-folk|chamber pop|freak folk|indie folk|indie pop|indie rock|lo-fi|melancholia|new weird america|stomp and holler
 21352,Limp,3,41BvcoyjJWRYdZ9dojoHcP,94,
 21353,Playgroup,23,62LxcTROPoUdVqrXDREavS,2184,
 21354,Saloon,11,3h00RMzcSJRXjGtduYr7Bq,259,
@@ -16496,7 +16460,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21491,Ides Of Space,4,3h5Bjsf65fsJzFtbtPwiUn,290,indie shoegaze
 21492,Barcelona,9,0t2raBrlqL6QjBNYGPhpw8,455,
 21494,Racebannon,5,2vRvgKobVJ9r3t52PpLdmY,617,
-21495,Lambchop,47,2Lhs0asnFQiLuntn3s8p78,72068,alternative country|anti-folk|art pop|art rock|chamber pop|chamber psych|freak folk|indie folk|indie rock|melancholia
 21496,The Emerald Down,2,2aCuogsfgQAtmymQTCD3kC,359,german shoegaze|indie shoegaze
 21497,AM/FM,3,061UOLeZPTmro0IdKqKdOE,213,
 21498,ROVO,17,2qZ6ysNx87m5VqGl58osSf,4432,experimental indie rock
@@ -16736,7 +16699,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 21914,The White Stripes,76,4F84IBURUo98rz4r61KF70,2432883,alternative rock|blues rock|detroit rock|garage rock|modern blues rock|modern rock|permanent wave|punk blues|rock
 21915,Jimmy Eat World,72,3Ayl7mCk0nScecqOzvNp6s,1165051,emo|modern power pop|modern rock|pop punk|pop rock|rock
 21919,The Faint,44,4A1yfFuBmBOgzv4Oe3fFHk,67043,alternative dance|dance-punk|electroclash|electropowerpop|indietronica|new rave|omaha indie
-21920,Fennesz,39,2DoQBgPsB9AdmWpIa2hUSz,46850,ambient|art pop|compositional ambient|drone|electroacoustic improvisation|experimental|experimental guitar|fourth world|freak folk|glitch|intelligent dance music|mandible|microhouse
 21922,Fantomas,35,43ltIj8NRBsmOEjDr5Sk10,75345,avant-garde metal|supergroup
 21923,Super Furry Animals,47,0FOcXqJgJ1oq9XfzYTDZmZ,89051,alternative rock|britpop|chamber pop|chamber psych|welsh indie|welsh rock
 21924,Cursive,46,1sylmUjlKYsLA49YtkNHW3,81647,dance-punk|dreamo|emo|emo punk|indie rock|omaha indie|post-hardcore|screamo
@@ -16819,7 +16781,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22028,Low,53,0wz0jO9anccPzH04N7FLBH,165884,alternative rock|art pop|chamber pop|dream pop|duluth indie|freak folk|indie rock|melancholia|slowcore
 22029,Matthew Shipp,23,1Lw2WbL7CWZXAWSLWYXq4r,5493,avant-garde jazz|contemporary jazz|free improvisation|free jazz|modern jazz piano
 22030,Shipping News,21,4KM9dvP8pZwLy9z7J41kq3,8954,louisville underground|math rock|post-hardcore|post-rock
-22031,Modest Mouse,70,1yAwtBaoHLEDWAnWR87hBT,1167910,alternative rock|double drumming|indie pop|indie rock|modern rock|rock|washington indie
 22033,Aceyalone,44,7CaUk9xCxdXAmmqQn3PLR7,33420,abstract hip hop|alternative hip hop|hip hop|turntablism|underground rap
 22034,Alkaline Trio,61,1aEYCT7t18aM3VvM6y8oVR,298289,chicago punk|emo|melodic hardcore|pop punk|punk|screamo|skate punk
 22037,Safety Scissors,7,2HpQHvDLGgRqttjOO0693y,501,microhouse
@@ -16844,7 +16805,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22065,Aix Em Klemm,22,42DUzz9SdjV6ih3rbUaHma,4980,ambient|drift|drone|experimental guitar
 22066,Godspeed You! Black Emperor,55,4svpOyfmQKuWpHLjgy4cdK,277497,alternative rock|canadian post-rock|compositional ambient|double drumming|drone|freak folk|instrumental post-rock|post-rock
 22069,The Mountain Goats,29,49gPnZl1apZ8iNwd6w8DEI,96,
-22070,Lambchop,47,2Lhs0asnFQiLuntn3s8p78,72068,alternative country|anti-folk|art pop|art rock|chamber pop|chamber psych|freak folk|indie folk|indie rock|melancholia
 22071,Blonde Redhead,55,5isqImG0rLfAgBJSPMEVXF,230208,alternative rock|art pop|dance-punk|dream pop|indie rock|nu gaze|shoegaze
 22072,Radiohead,82,4Z8W4fKeB5YxbusRsdQVPb,6113760,alternative rock|art rock|melancholia|oxford indie|permanent wave|rock
 22073,Johnny Cash,80,6kACVPfCOnqzgfEF5ryl0x,4659916,arkansas country|outlaw country
@@ -16863,7 +16823,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22088,Rian Murphy,0,66ITYT87smPrgMPo6GjnBq,44,
 22088,Will Oldham,32,2EEw2tt8AJcH9qXUeB96Oc,19546,
 22089,Pinetop Seven,5,7LM1zVHpJYgl9cgpgsHf08,482,melancholia
-22090,Ryan Adams,62,2qc41rNTtdLK0tV3mJn2Pm,515130,acoustic pop|alternative country|neo mellow|new americana|pop rock|roots rock|singer-songwriter|stomp and holler
 22093,The Microphones,53,7Ht57YadlBXcFJDK3plmhO,113417,alternative rock|anti-folk|art rock|freak folk|indie pop|indie rock|lo-fi|noise pop|olympia wa indie
 22096,Joan Of Arc,25,6U9PwS3WsiKBVewf7wtwIZ,15414,chicago indie|emo|emo punk|experimental indie rock|post-hardcore
 22099,The Beach Boys,77,3oDbviiivRWhXwIE8hxkVV,3120730,baroque pop|brill building pop|classic rock|folk rock|psychedelic rock|rock|sunshine pop
@@ -16894,7 +16853,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22132,The Beans,0,6qH0zGcn3nTFDKnChZWfhh,55,
 22133,Modest Mouse,70,1yAwtBaoHLEDWAnWR87hBT,1167910,alternative rock|double drumming|indie pop|indie rock|modern rock|rock|washington indie
 22135,Blonde Redhead,55,5isqImG0rLfAgBJSPMEVXF,230208,alternative rock|art pop|dance-punk|dream pop|indie rock|nu gaze|shoegaze
-22136,Grandaddy,51,3W4xM5XYtUp4ifYYPVKVdk,118534,alternative rock|anti-folk|chamber pop|dream pop|freak folk|indie pop|indie rock|lo-fi
 22137,The Aislers Set,23,3hhbHynBIT7ulyfJfrDKLt,4957,c86|tape club|twee pop
 22140,Belle & Sebastian,61,4I2BJf80C0skQpp1sQmA0h,519894,alternative rock|anti-folk|baroque pop|chamber pop|freak folk|indie folk|indie pop|indie rock|melancholia|scottish indie|scottish rock|twee pop
 22142,Gregg Bendian's Interzone,0,0HBmV2y5G7dXc0xDuY9EAt,24,
@@ -16943,7 +16901,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22205,Trembling Blue Stars,23,708Zhi8JBJ5oChx0hYadnK,4990,c86|garage psych|melancholia|tape club|twee pop
 22206,Mary Timony,19,1FFaHFtnhdnHuY0xGZcnD1,5303,alternative pop|boston rock|riot grrrl
 22208,Yo La Tengo,61,5hAhrnb0Ch4ODwWu4tsbpi,374028,alternative rock|anti-folk|art pop|dream pop|freak folk|indie pop|indie rock|lo-fi|new jersey indie|noise pop|permanent wave|rock
-22209,Enon,32,3jJxGc6wl7xvZHSg8tg61V,9275,dance-punk|experimental indie rock|experimental rock
 22210,Mouse On Mars,36,4ZgIWfyg9BkcqnJJ2xVR3f,32701,deep idm|drill and bass|dusseldorf electronic|dusseldorf indie|german electronica|indie electronica|intelligent dance music|microhouse|minimal techno|ninja|trip hop
 22211,Non,16,1tEXly3qYB0SYxDzi7gvFS,2357,
 22214,Poster Children,17,3yhc2Jz6eRcmlUjQtbXNk8,2489,alternative pop
@@ -16957,7 +16914,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22234,The Avalanches,67,3C8RpaI3Go0yFF9whvKoED,384316,alternative dance|australian alternative rock|australian dance|collage pop|electronica|new rave|psychedelic hip hop
 22238,Q-Tip,68,3ZotbHeyVQKxQCPDJuQ4SU,461345,alternative hip hop|east coast hip hop|hardcore hip hop|hip hop|neo soul|queens hip hop
 22240,Two Lone Swordsmen,34,33Ztukerf3He8FeKk5acn8,21196,deep idm|drill and bass|electro|indie electronica|intelligent dance music|microhouse|ninja|techno|trip hop
-22241,Fiona Apple,66,3g2kUQ6tHLLbmkV7T4GPtL,809685,art pop|chamber pop|indie pop|lilith|permanent wave|piano rock|pop rock|singer-songwriter
 22243,Unrest,23,0Hko1NgISX00BkCPOuyVzQ,5426,alternative pop|gbvfi|lo-fi
 22244,Unrest,23,0Hko1NgISX00BkCPOuyVzQ,5426,alternative pop|gbvfi|lo-fi
 22245,Gorky's Zygotic Mynci,36,5ShFRZUGJZL1qMkIPtYV5M,17249,britpop|chamber pop|welsh rock
@@ -16974,7 +16930,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22264,Ben Harper And The Innocent Criminals,51,7sJ9LR0mCMgFlzJ6Y9xP64,104790,modern folk rock
 22265,Stereolab,56,3Rj0tDHoX7C5NFq5DKIpHt,191243,alternative rock|art pop|art rock|chamber psych|dance-punk|electronica|experimental|experimental pop|freak folk|indietronica|lo-fi|neo-psychedelic|new wave|noise pop
 22266,The Get Up Kids,47,54Bjxn26WsjfslQbNVtSCm,105807,emo|emo punk|kc indie|midwest emo|pop punk|post-hardcore
-22267,Nine Inch Nails,71,0X380XXQSNBYuleKzav5UO,1786891,alternative metal|alternative rock|cyberpunk|electronic rock|industrial|industrial metal|industrial rock|nu metal|rock
 22269,Solex,20,7uV7uQgiUQ3Ipxs5cHZsGL,2455,trip hop
 22270,Sloan,46,1ahN3WDDULKaAQs7ZUrGNP,49652,canadian indie|canadian rock|halifax indie|indie rock|lilith|power pop
 22271,The Magnetic Fields,56,6RWjTQqILL7a1tQ0VapyLK,168696,alternative rock|anti-folk|art pop|art rock|chamber pop|dream pop|freak folk|indie folk|indie pop|indie rock|lo-fi|melancholia|metropopolis|permanent wave|tape club
@@ -16991,7 +16946,6 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22285,Plaid,46,5akVqMzdZOdbMYbE4vNZWD,82950,abstract|deep idm|drill and bass|electronica|intelligent dance music|microhouse|ninja
 22286,Red Hot Chili Peppers,86,0L8ExT028jH3ddEcZwqJJ5,15946956,alternative rock|funk metal|funk rock|permanent wave|rock
 22288,Rachel's,33,0sXLPUQAB1hir58hoQnxZa,16305,bow pop|compositional ambient|nu age|post-rock
-22289,Sigur Rós,62,6UUrUCIZtQeOf8tC0WuzRy,1053275,bow pop|compositional ambient|dream pop|ethereal wave|icelandic rock|melancholia|nordic post-rock|post-rock
 22291,Caetano Veloso,72,7HGNYPmbDrMkylWqeFCOIQ,1575689,bossa nova|mpb|nova mpb|samba de roda|tropicalia
 22293,Stereophonics,69,21UJ7PRWb3Etgsu99f8yo8,1145075,britpop|modern rock|pop rock|rock|welsh rock
 22296,Matthew Shipp,23,1Lw2WbL7CWZXAWSLWYXq4r,5493,avant-garde jazz|contemporary jazz|free improvisation|free jazz|modern jazz piano
@@ -17001,12 +16955,10 @@ pitchfork_id,artist_name,popularity,artist_id,followers,genres
 22300,Ben Folds Five,52,44gRHbEm4Uqa0ykW0rDTNk,211947,alternative rock|permanent wave|piano rock|pop rock
 22302,Mansun,54,7rqRuB0wgUaStDN73PlV4U,50002,britpop
 22304,Old Time Relijun,16,39vNtLRbyJVLVeSsEipZ7h,3977,noise punk|olympia wa indie
-22305,Underworld,61,1PXHzxRDiLnjqNrRn2Xbsa,450408,alternative dance|big beat|electronica|intelligent dance music
 22306,The Delgados,34,4wavWMHhIiUXxwCuWsHzXo,15452,britpop|scottish indie
 22307,Beulah,34,0O5sXbPJPWbHKnbLfdLARS,17248,alternative rock|elephant 6|gbvfi|indie rock|lo-fi
 22308,David Sylvian,48,2oyWkw7sq99yqj12hVUHtw,89997,ambient pop|art pop|art rock|experimental rock|fourth world|melancholia|new romantic|new wave|sophisti-pop
 22309,Ghost,15,59IZPHfed17Kn89v6knzSJ,1492,japanese psychedelic rock
-22310,Mogwai,60,34UhPkLbtFKRq3nmfFgejG,470479,british post-rock|chamber psych|cosmic post-rock|post-rock
 22311,Blur,73,7MhMgCo0Bl0Kukl93PZbYS,2134275,alternative rock|britpop|madchester|modern rock|permanent wave|pop rock|rock
 22313,Trans Am,30,1YFIyRFTa7povIpq08DcCA,17099,american post-rock|post-hardcore|post-rock
 22314,Songs: Ohia,50,3uQ5cxFHxXddqPL58egs1z,89927,alternative country|alternative rock|anti-folk|freak folk|indie folk|indie rock|lo-fi|roots rock|slowcore|stomp and holler
