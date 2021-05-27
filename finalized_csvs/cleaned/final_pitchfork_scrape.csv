@@ -1,5 +1,4 @@
 pitchfork_id,artist,album,score,link,release_year
-0,Adrian Younge,The American Negro,4.0,/reviews/albums/adrian-younge-the-american-negro/,2021
 2,Eve Adams,Metal Bird,7.5,/reviews/albums/eve-adams-metal-bird/,2021
 3,Drakeo the Ruler,The Truth Hurts,7.7,/reviews/albums/drakeo-the-ruler-the-truth-hurts/,2021
 5,Sam Gendel,Fresh Bread,6.5,/reviews/albums/sam-gendel-fresh-bread/,2021
@@ -229,7 +228,6 @@ pitchfork_id,artist,album,score,link,release_year
 273,Pylon,Pylon Box,8.5,/reviews/albums/pylon-pylon-box/,2020
 275,Overmono,Everything U Need EP,6.7,/reviews/albums/overmono-everything-u-need-ep/,2020
 276,Trippie Redd,Pegasus,5.6,/reviews/albums/trippie-redd-pegasus/,2020
-277,Angel Bat Dawid||Tha Brothahood,LIVE,8.4,/reviews/albums/angel-bat-dawid-tha-brothahood-live/,2020
 278,The Style Council,Long Hot Summers: The Story of The Style Council,7.8,/reviews/albums/the-style-council-long-hot-summers-the-story-of-the-style-council/,2020
 280,Sam Amidon,Sam Amidon,7.6,/reviews/albums/sam-amidon-sam-amidon/,2020
 282,WizKid,Made in Lagos,7.7,/reviews/albums/wizkid-made-in-lagos/,2020
@@ -388,7 +386,6 @@ pitchfork_id,artist,album,score,link,release_year
 465,Everything Everything,Re-Animator,6.8,/reviews/albums/everything-everything-re-animator/,2020
 466,Big Sean,Detroit 2,5.2,/reviews/albums/big-sean-detroit-2/,2020
 467,N to The Power,Autogenesis,7.2,/reviews/albums/n-to-the-power-autogenesis/,2020
-468,Colter Wall,Western Swing & Waltzes and Other Punchy Songs,7.6,/reviews/albums/colter-wall-western-swing-and-waltzes-and-other-punchy-songs/,2020
 470,bbymutha,Muthaland,8.0,/reviews/albums/bbymutha-muthaland/,2020
 471,Declan McKenna,Zeros,7.3,/reviews/albums/declan-mckenna-zeros/,2020
 472,Zora Jones,Ten Billion Angels,8.0,/reviews/albums/zora-jones-ten-billion-angels/,2020
@@ -427,7 +424,6 @@ pitchfork_id,artist,album,score,link,release_year
 512,Fireboy DML,APOLLO,8.3,/reviews/albums/fireboy-dml-apollo/,2020
 513,H.C. McEntire,Eno Axis,8.1,/reviews/albums/hc-mcentire-eno-axis/,2020
 514,The Front Bottoms,In Sickness & In Flames,5.6,/reviews/albums/the-front-bottoms-in-sickness-and-in-flames/,2020
-515,Mary Chapin Carpenter,The Dirt and the Stars,7.7,/reviews/albums/mary-chapin-carpenter-the-dirt-and-the-stars/,2020
 516,Nubya Garcia,Source,8.3,/reviews/albums/nubya-garcia-source/,2020
 517,Cut Copy,"Freeze, Melt",6.5,/reviews/albums/cut-copy-freeze-melt/,2020
 518,John Vanderslice,Eeeeeeep! EP,6.8,/reviews/albums/john-vanderslice-eeeeeeep-ep/,2020
@@ -592,7 +588,6 @@ pitchfork_id,artist,album,score,link,release_year
 711,Haim,Women in Music Pt. III,8.6,/reviews/albums/haim-women-in-music-pt-iii/,2020
 712, Gia Margaret,Mia Gargaret,7.0,/reviews/albums/gia-margaret-mia-gargaret/,2020
 713,Nadine Shah,Kitchen Sink,7.9,/reviews/albums/nadine-shah-kitchen-sink/,2020
-715,Neil Young,Homegrown,8.8,/reviews/albums/neil-young-homegrown/,2020
 716,John Legend,Bigger Love,6.4,/reviews/albums/john-legend-bigger-love/,2020
 717,Gum Country,Somewhere,7.2,/reviews/albums/gum-country-somewhere/,2020
 718,42 Dugg,Young & Turnt 2 (Deluxe),7.6,/reviews/albums/42-dugg-young-and-turnt-2-deluxe/,2020
@@ -1147,7 +1142,6 @@ pitchfork_id,artist,album,score,link,release_year
 1334,Tindersticks,No Treasure But Hope,7.8,/reviews/albums/tindersticks-no-treasure-but-hope/,2019
 1335,03 Greedo||Kenny Beats,Netflix & Deal,7.5,/reviews/albums/03-greedo-kenny-beats-netflix-and-deal/,2019
 1336,Caroline Says,Ohio River EP,7.0,/reviews/albums/caroline-says-ohio-river-ep/,2019
-1337,Tinashe,Songs for You,7.7,/reviews/albums/tinashe-songs-for-you/,2019
 1338,Griselda,WWCD,7.7,/reviews/albums/griselda-wwcd/,2019
 1339,William Patrick Corgan,Cotillions,6.4,/reviews/albums/william-patrick-corgan-cotillions/,2019
 1340,Origami Angel,Somewhere City,7.0,/reviews/albums/origami-angel-somewhere-city/,2019
@@ -1995,7 +1989,6 @@ pitchfork_id,artist,album,score,link,release_year
 2315,HEALTH,VOL. 4 :: SLAVES OF FEAR,3.4,/reviews/albums/health-vol-4-slaves-of-fear/,2019
 2316,AJ Tracey,AJ Tracey,6.8,/reviews/albums/aj-tracey-aj-tracey/,2019
 2317,Hauschka,A Different Forest,6.9,/reviews/albums/hauschka-a-different-forest/,2019
-2319,Cass McCombs,Tip of the Sphere,8.0,/reviews/albums/cass-mccombs-tip-of-the-sphere/,2019
 2320,Laurie Spiegel,Unseen Worlds,8.0,/reviews/albums/laurie-spiegel-unseen-worlds/,1991
 2321,Mikron,Severance,7.4,/reviews/albums/mikron-severance/,2019
 2322,Tiny Ruins,Olympic Girls,7.4,/reviews/albums/tiny-ruins-olympic-girls/,2019
@@ -2916,7 +2909,6 @@ pitchfork_id,artist,album,score,link,release_year
 3386,August Greene,August Greene,6.5,/reviews/albums/august-greene-august-greene/,2018
 3387,Caroline Rose,LONER,7.6,/reviews/albums/caroline-rose-loner/,2018
 3388,Of Montreal,White Is Relic/Irrealis Mood,7.2,/reviews/albums/of-montreal-white-is-relicirrealis-mood/,2018
-3389,Smerz,Have fun EP,8.1,/reviews/albums/smerz-have-fun-ep/,2018
 3390,DJ Nigga Fox,Crânio EP,8.0,/reviews/albums/dj-nigga-fox-cranio-ep/,2018
 3392,David Byrne,American Utopia,5.8,/reviews/albums/david-byrne-american-utopia/,2018
 3393,Kraus,Path,7.3,/reviews/albums/kraus-path/,2018
@@ -3877,7 +3869,6 @@ pitchfork_id,artist,album,score,link,release_year
 4551,Tonstartssbandht,Sorcerer,7.7,/reviews/albums/23026-sorcerer/,2017
 4552,Jacques Greene,Feel Infinite,7.6,/reviews/albums/23010-feel-infinite/,2017
 4553,Sneaks,It's a Myth,7.3,/reviews/albums/23020-its-a-myth/,2017
-4555,Chilly Gonzales||Jarvis Cocker,Room 29,7.2,/reviews/albums/22968-room-29/,2017
 4557,Octo Octa,Where Are We Going?,7.6,/reviews/albums/23033-where-are-we-going/,2017
 4559,Mount Eerie,A Crow Looked At Me,9.0,/reviews/albums/22970-a-crow-looked-at-me/,2017
 4560,Pallbearer,Heartless,6.0,/reviews/albums/23012-heartless/,2017
@@ -6837,7 +6828,6 @@ pitchfork_id,artist,album,score,link,release_year
 8304,Xiu Xiu,Nina,4.7,/reviews/albums/18762-xiu-xiu-nina/,2013
 8305,Neil Young,Live at the Cellar Door,7.7,/reviews/albums/18757-neil-young-live-at-the-cellar-door/,2013
 8306,Bjørn Torske,Kok EP,6.5,/reviews/albums/18790-bjorn-torske-kok-ep/,2013
-8308,David Novick,David Novick,7.1,/reviews/albums/18808-david-novick-david-novick/,2013
 8311,Inquisition,Obscure Verses for the Multiverse,8.1,/reviews/albums/18620-inquisition-obscure-verses-for-the-multiverse/,2013
 8312,Gardland,Syndrome Syndrome,6.3,/reviews/albums/18648-gardland-syndrome-syndrome/,2013
 8313,Robert Pollard,Blazing Gentlemen,5.7,/reviews/albums/18802-robert-pollard-blazing-gentlemen/,2013
@@ -7998,7 +7988,6 @@ pitchfork_id,artist,album,score,link,release_year
 9969,Menomena,Moms,8.0,/reviews/albums/17035-moms/,2012
 9970,Bob Dylan,Tempest,6.8,/reviews/albums/17139-the-tempest/,2012
 9971,John Tejada,The Predicting Machine,6.9,/reviews/albums/17031-the-predicting-machine/,2012
-9972,The Music Tapes,Mary's Voice,7.1,/reviews/albums/16986-marys-voice/,2012
 9973,The Raveonettes,Observator,5.6,/reviews/albums/17027-observator/,2012
 9974,Angel Olsen,Half Way Home,8.0,/reviews/albums/17154-half-way-home/,2012
 9975,Thee Oh Sees,Putrifiers II,8.1,/reviews/albums/17029-putrifiers-ii/,2012
@@ -11198,7 +11187,6 @@ pitchfork_id,artist,album,score,link,release_year
 14299,Snow Patrol,A Hundred Million Suns,4.9,/reviews/albums/12389-a-hundred-million-suns/,2008
 14300,Dianogah,qhnnnl,7.4,/reviews/albums/12363-qhnnnl/,2008
 14303,Mavis Staples,Live: Hope at the Hideout,7.6,/reviews/albums/12387-live-hope-at-the-hideout/,2008
-14305,TOBACCO,Fucked Up Friends,6.2,/reviews/albums/12367-fucked-up-friends/,2008
 14306,The Dears,Missiles,7.3,/reviews/albums/12359-missiles/,2008
 14307,Callers,Fortune,7.8,/reviews/albums/12372-fortune/,2008
 14308,Crystal Stilts,Alight of Night,8.1,/reviews/albums/12381-alight-of-night/,2008
@@ -13022,7 +13010,6 @@ pitchfork_id,artist,album,score,link,release_year
 16919,The Legends,Public Radio,3.8,/reviews/albums/9211-public-radio/,2006
 16921,Barry Adamson,Stranger on the Sofa,7.5,/reviews/albums/9196-stranger-on-the-sofa/,2006
 16922,Lily Allen,"Alright, Still",8.3,/reviews/albums/9221-alright-still/,2006
-16923,Think About Life,Think About Life,5.8,/reviews/albums/9194-think-about-life/,2006
 16927,Girl Talk,Night Ripper,8.4,/reviews/albums/9208-night-ripper/,2006
 16928,Murder by Death,In Bocca al Lupo,5.3,/reviews/albums/9172-in-bocca-al-lupo/,2006
 16929,An Albatross,Blessphemy (of the Peace-Beast Feastgiver and the Bear-Warp Kumite),5.6,/reviews/albums/9174-blessphemy-of-the-peace-beast-feastgiver-and-the-bear-warp-kumite/,2006
@@ -13178,9 +13165,7 @@ pitchfork_id,artist,album,score,link,release_year
 17148,Gnarls Barkley,St. Elsewhere,7.7,/reviews/albums/3693-st-elsewhere/,2006
 17149,Wire,Pink Flag,10.0,/reviews/albums/11866-pink-flag-chairs-missing-154/,1977
 17150,Placebo,Meds,5.1,/reviews/albums/6328-meds/,2006
-17151,Rahim,Ideal Lives,7.5,/reviews/albums/6956-ideal-lives/,2006
 17152,Jesu,Silver EP,7.9,/reviews/albums/4353-silver-ep/,2006
-17153,Frog Eyes,The Bloody Hand,8.6,/reviews/albums/11743-the-bloody-hand-the-golden-river/,2006
 17154,Chicago Underground Duo,In Praise of Shadows,6.7,/reviews/albums/1439-in-praise-of-shadows/,2006
 17155,Cadence Weapon,Breaking Kayfabe,8.0,/reviews/albums/1801-breaking-kayfabe/,2005
 17156,Sunset Rubdown,Shut Up I Am Dreaming,8.6,/reviews/albums/7818-shut-up-i-am-dreaming/,2006
@@ -15088,7 +15073,6 @@ pitchfork_id,artist,album,score,link,release_year
 20109,Cobra High,Sunset in the Eye of the Hurricane,7.7,/reviews/albums/1718-sunset-in-the-eye-of-the-hurricane/,2003
 20110,Tricky,Vulnerable,4.9,/reviews/albums/8152-vulnerable/,2003
 20111,Madlib,Shades of Blue: Madlib Invades Blue Note,8.6,/reviews/albums/5541-shades-of-blue-madlib-invades-blue-note/,2003
-20113,Frog Eyes,The Golden River,9.1,/reviews/albums/3265-the-golden-river/,2003
 20114,Linda Perhacs,Parallelograms,8.6,/reviews/albums/6521-parallelograms/,2003
 20117,Can,Out of Reach,3.7,/reviews/albums/1270-out-of-reach/,2003
 20120,The Tyde,Twice,7.0,/reviews/albums/8230-twice/,2003
@@ -15970,7 +15954,6 @@ pitchfork_id,artist,album,score,link,release_year
 21515,Art Ensemble of Chicago,A Jackson in Your House,7.5,/reviews/albums/11643-a-jackson-in-your-housemessage-to-our-folks/,2001
 21516,Boards of Canada,Geogaddi,8.6,/reviews/albums/837-geogaddi/,2002
 21517,James Hardway,Straight from the Fridge,7.9,/reviews/albums/3744-straight-from-the-fridge/,2001
-21519,South,From Here On In,6.9,/reviews/albums/7381-from-here-on-in/,2002
 21522,The Divine Comedy,Regeneration,7.9,/reviews/albums/2341-regeneration/,2001
 21525,Aphex Twin,Selected Ambient Works 85-92,9.4,/reviews/albums/223-selected-ambient-works-85-92/,2002
 21528,This Heat,Deceit,9.0,/reviews/albums/8015-deceit/,2001
