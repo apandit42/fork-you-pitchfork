@@ -88,25 +88,60 @@ def confusion_matrix_metric(y_true, y_pred, targetnames, plot = False) :
     disp.savefig('confuion_matrix_logreg.png')
 
 if __name__ == '__main__':
-    X_train = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_X_TRAIN.csv')
-    X_test = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_X_TEST.csv')
-    y_train = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TRAIN_CLASSIFICATION.csv')
-    y_test = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TEST_CLASSIFICATION.csv')
-    clf = LogisticRegression(random_state=0, solver='newton-cg', max_iter=10000, multi_class='ovr', n_jobs=4).fit(X_train, y_train)
-    predictions = clf.predict(X_test)
-    score_num = clf.score(X_test, y_test)
-    print('PREDICTIONS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    print(predictions)
-    print('SCORE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    print(score_num)
+    #X_train = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_X_TRAIN.csv')
+    #X_test = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_X_TEST.csv')
 
-    target_names = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    X_train = pd.read_csv('../DATA_MATRICES/DA_BIG_MAN_X_TRAIN.csv')
+    X_test = pd.read_csv('../DATA_MATRICES/DA_BIG_MAN_X_TEST.csv')
 
-    class_rep = classification_scores(predictions, y_test, target_names, True)
-    save_file = Path('class_rep_logreg.txt')
-    save_file.write_text(class_rep)
-    # write class_rep to a file... 
-    #multiclassROC(predictions, y_test, 10, True)
-    # want to save plot somewhere
-    #confusion_matrix(y_test, predictions, target_names, True)
-    # want to save plot somewhere 
+    y_train10 = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TRAIN_CLASSIFICATION.csv')
+    y_test10 = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TEST_CLASSIFICATION.csv')
+
+    y_train6 = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TRAIN_CLASSIFICATION_SIX.csv')
+    y_test6 = pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TEST_CLASSIFICATION_SIX.csv')
+
+    y_train3 =  pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TRAIN_CLASSIFICATION_TRI.csv')
+    y_test3 =  pd.read_csv('../DATA_MATRICES/THE_REAL_ONE_Y_TEST_CLASSIFICATION_TRI.csv')
+
+
+    print('TRAINING 10 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!')
+    # 10 BUCKETS 
+    clf = LogisticRegression(random_state=0, solver='newton-cg', max_iter=10000, multi_class='ovr', n_jobs=4).fit(X_train, y_train10)
+    predictions10 = clf.predict(X_test)
+    score_num10 = clf.score(X_test, y_test10)
+    print('PREDICTIONS 10 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(predictions10)
+    print('SCORE 10 BUCKETS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(score_num10)
+    target_names10 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    class_rep10 = classification_scores(predictions, y_test10, target_names, True)
+    save_file = Path('class_rep_logreg10_dabigman.txt')
+    save_file.write_text(class_rep10)
+
+    print('TRAINING 6 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!')
+    # 6 BUCKETS 
+    clf6 = LogisticRegression(random_state=0, solver='newton-cg', max_iter=10000, multi_class='ovr', n_jobs=4).fit(X_train, y_train6)
+    predictions6 = clf6.predict(X_test)
+    score_num6 = clf6.score(X_test, y_test6)
+    print('PREDICTIONS 6 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(predictions6)
+    print('SCORE 6 BUCKETS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(score_num6)
+    target_names6 = ['0', '1', '2', '3', '4', '5']
+    class_rep6 = classification_scores(predictions, y_test6, target_names6, True)
+    save_file = Path('class_rep_logreg6_dabigman.txt')
+    save_file.write_text(class_rep6)
+
+    print('TRAINING 3 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!')
+    # 3 BUCKETS
+    clf3 = LogisticRegression(random_state=0, solver='newton-cg', max_iter=10000, multi_class='ovr', n_jobs=4).fit(X_train, y_train3)
+    predictions3 = clf3.predict(X_test)
+    score_num3 = clf3.score(X_test, y_test3)
+    print('PREDICTIONS 3 BUCKETS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(predictions3)
+    print('SCORE 3 BUCKETS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print(score_num3)
+    target_names3 = ['0', '1', '2']
+    class_rep3 = classification_scores(predictions, y_test3, target_names3, True)
+    save_file = Path('class_rep_logreg3_dabigman.txt')
+    save_file.write_text(class_rep3)
